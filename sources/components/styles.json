@@ -1,0 +1,555 @@
+{
+  "drawer" : {
+  	"flex"       : 1,
+  	"alignItems" : "flex-start"
+  },
+
+"listItem" : {
+  "width": "100%", "marginLeft": 0, "paddingLeft": 10, "paddingRight": 10, "marginRight": 0
+},
+
+  "backgroundImage" : {
+    "flex"          : 1,
+    "resizeMode"    : "stretch"
+  },
+
+  "wallp" : {
+    "flex"          : 1,
+  	"width"         : null,
+  	"height"        : null,
+  	"resizeMode"    : "cover",
+  },
+
+  "rowView" : {
+    "flex"          : 1,
+    "flexDirection" : "row"
+   },
+
+   "columnView" : {
+     "flex"          : 1,
+     "flexDirection" : "column"
+    },
+
+
+  "title"           : {
+    "flex"          : 1,
+    "alignItems"    : "center",
+    "justifyContent": "center"
+  },
+
+  "centeredView"       : {
+    "alignItems"    : "center",
+    "justifyContent": "center"
+  },
+
+  "container"       : {
+    "alignItems"    : "center",
+    "flex"          : 1
+  },
+
+  "containerFlex"       : {
+    "flex"          : 1
+  },
+
+  "containerListFlat"       : {
+    "flex"          : 1,
+  },
+
+  "containerList"       : {
+    "flex"          : 1,
+    "alignItems"    : "center",
+    "justifyContent": "center"
+  },
+
+  "List"       : {
+  "marginTop" : 5
+  },
+
+  "containerImg"       : {
+    "alignItems"    : "center",
+    "flex"          : 1,
+    "backgroundColor" : "red"
+
+  },
+
+  "boxImg"       : {
+  "backgroundColor" : "red"
+  },
+
+  "separatorLine" : {
+    "borderBottomColor": "black",
+    "borderBottomWidth": 1,
+    "marginTop"        : 5,
+  },
+
+  "containerProfile"       : {
+    "flex"               : 1,
+    "flexDirection"      : "column",
+  },
+
+  "boxContainerProfileEdit"       : {
+    "flex"                : 1,
+    "backgroundColor"     : "#337AB7",
+    "alignItems"          : "center",
+  },
+
+  "boxOneProfileEdit"       : {
+    "flex"    : 6
+  },
+
+  "boxTwoProfileEdit"       : {
+    "flex"    : 1,
+  },
+
+  "boxThreeProfileEdit"       : {
+    "flex"        : 1,
+    "alignItems"  : "flex-end",
+  },
+
+  "containerButtonEdit"       : {
+    "flex"    : 1,
+    "alignItems"          : "center",
+    "justifyContent"      : "flex-end"
+  },
+
+
+  "boxContainerProfile"       : {
+    "backgroundColor"     : "white",
+    "flex"    : 1,
+    "alignItems"          : "center",
+    "justifyContent"      : "center"
+  },
+
+  "boxOneProfile"       : {
+    "flex"    : 4,
+    "backgroundColor"     : "#337AB7",
+    "flexDirection"      : "row",
+    "alignItems"         : "center",
+    "justifyContent"     : "space-around"
+  },
+
+  "boxTwoProfile"       : {
+    "flex"    : 3,
+    "alignItems"         : "flex-start",
+  },
+
+  "boxThreeProfile"       : {
+    "flex"    : 1,
+    "justifyContent"      : "space-between",
+  },
+
+  "boxFourProfile"       : {
+    "flex"    : 1,
+    "justifyContent"      : "space-between",
+  },
+
+
+  "containerParameter"       : {
+    "flex"               : 1,
+    "flexDirection"      : "column",
+  },
+
+  "boxContainerParameter"       : {
+    "backgroundColor"     : "#337AB7",
+    "flex"    : 1,
+    "justifyContent"      : "center"
+  },
+
+  "boxOneParameter"       : {
+    "flex"    : 1,
+    "alignItems"          : "center",
+    "justifyContent"      : "space-around",
+  },
+
+  "boxOneParameter2"       : {
+    "flex"    : 1,
+    "alignItems"          : "center",
+    "justifyContent"      : "flex-start",
+  },
+
+
+  "boxTwoParameter"       : {
+    "flex"    : 1,
+    "justifyContent"      : "space-around",
+    "alignItems"          : "center",
+  },
+
+  "boxThreeParameter"       : {
+    "flex"    : 1,
+    "alignItems"          : "flex-end",
+  },
+
+  "modalPassword"     : {
+    "flex"    : 1,
+    "marginTop" : 22
+
+  },
+
+  "containerPassword"       : {
+    "flex"               : 1,
+    "backgroundColor"     : "#337AB7",
+    "flexDirection"      : "column",
+  },
+
+  "boxContainerPassword"       : {
+    "backgroundColor"     : "#337AB7",
+    "flex"    : 1,
+    "alignItems"          : "center",
+    "justifyContent"      : "flex-start"
+  },
+
+  "boxOnePassword"       : {
+    "flex"    : 3,
+  },
+
+  "boxTwoPassword"       : {
+    "flex"            : 1,
+    "alignItems"      : "flex-end"
+  },
+
+  "boxThreePassword"       : {
+    "flex"    : 1,
+  },
+
+  "containerSignin"       : {
+    "flexDirection" : "column",
+    "flex"          : 1
+  },
+
+  "containerBlack": {
+  		"flex"           : 1,
+      "backgroundColor": "black"
+  	},
+
+  "containerInputs"       : {
+    "flex"          : 1,
+    "flexDirection" : "row",
+    "justifyContent": "center",
+    "alignItems"    : "center",
+  },
+
+
+  "containerInputsNoFlex"       : {
+    "flexDirection" : "row",
+    "justifyContent": "center",
+    "alignItems"    : "center",
+  },
+
+  "inputs"        : {
+    "marginTop"   : 10,
+    "marginBottom": 10,
+    "marginLeft"  : 10,
+    "marginRight" : 10
+  },
+
+  "iconLinePassword" : {
+    "position"   : "absolute",
+  	"zIndex"     : 0,
+  	"width"      : "5%",
+  	"height"     : "30%",
+  	"left"       : "9%",
+  	"top"        : "20%",
+    },
+
+  "iconLine"        : {
+    "position"   : "absolute",
+  	"zIndex"     : 0,
+  	"width"      : "4%",
+  	"height"     : "42%",
+  	"left"       : "10%",
+  	"top"        : "20%",
+    },
+
+    "iconStyleBase"        : {
+    "paddingLeft" : 8
+      },
+
+      "iconStyleBaseRounded"        : {
+      "color" : "white"
+        },
+
+
+    "iconLineEmpty"        : {
+      "position"   : "absolute",
+      },
+
+    "iconLineProfile"        : {
+      "position"   : "absolute",
+      "zIndex"     : 99,
+      "width"      : 22,
+      "height"     : 22,
+      "left"       : 37,
+      "top"        : 9,
+      },
+
+      "iconLineProfile2"        : {
+        "position"   : "absolute",
+        "zIndex"     : 99,
+        "width"      : 22,
+        "height"     : 22,
+        "left"       : 37,
+        "top"        : 33,
+        },
+
+      "iconLineProfileBDay"        : {
+        "position"   : "absolute",
+        "zIndex"     : 99,
+        "width"      : 22,
+        "height"     : 22,
+        "left"       : 200,
+        "top"        : 7,
+        },
+
+
+"imgImageList" : {
+  "width": 200,
+  "height": 200,
+  "alignSelf" : "center"
+},
+
+"textImageList" : {
+  "alignSelf" : "center"
+},
+
+"inputsField"        : {
+		"backgroundColor"   : "rgba(255, 255, 255, 0.4)",
+		"width"             : 350,
+		"height"            : 40,
+		"marginHorizontal"  : 20,
+		"paddingLeft"       : 45,
+    "marginBottom"      : 12,
+		"borderRadius"      : 20,
+		"color"             : "#E3F2FD",
+    "marginLeft"        : 20,
+    "marginRight"       : 20
+	},
+
+  "inputsBlue"        : {
+  		"backgroundColor"   : "#C9C9FF",
+  		"width"             : 350,
+  		"height"            : 40,
+  		"marginHorizontal"  : 20,
+  		"paddingLeft"       : 45,
+      "marginBottom"      : 12,
+  		"borderRadius"      : 20,
+  		"color"             : "black",
+      "marginLeft"        : 20,
+      "marginRight"       : 20
+  	},
+
+  "inputsError"        : {
+  		"backgroundColor"   : "#BC6060",
+  		"width"             : 350,
+  		"height"            : 40,
+  		"marginHorizontal"  : 20,
+  		"paddingLeft"       : 45,
+      "marginBottom"      : 12,
+  		"borderRadius"      : 20,
+  		"color"             : "white",
+      "marginLeft"        : 20,
+      "marginRight"       : 20
+  	},
+
+    "textError" : {
+      "fontSize"  : 17,
+      "alignSelf" : "center",
+      "color"     : "#A24444",
+    },
+
+
+  "inputsWhite"        : {
+  		"backgroundColor"   : "rgba(255, 255, 255, 20)",
+  		"width"             : 350,
+  		"height"            : 40,
+  		"marginHorizontal"  : 20,
+  		"paddingLeft"       : 45,
+      "marginBottom"      : 12,
+  		"borderRadius"      : 20,
+  		"color"             : "#0D47A1",
+      "marginLeft"        : 18,
+      "marginRight"       : 18
+  	},
+
+  "iconImg"        : {
+    "position"      : "absolute",
+    "zIndex"        : 99,
+    "width"         : 22,
+    "height"        : 22,
+    "left"          : 35,
+    "top"           : 9,
+  	},
+
+  "forgotContainer"   : {
+    "flexDirection"   : "row",
+    "justifyContent"  : "space-between",
+    "marginTop"       : 10,
+    "marginLeft"      : 10,
+    "marginRight"     : 10
+  },
+
+  "input" : {
+    "height"      : 40,
+    "borderColor" : "gray",
+    "borderWidth" : 1
+  },
+
+  "inputBig" : {
+    "height"      : 120,
+    "borderColor" : "gray",
+    "borderWidth" : 1
+  },
+
+
+  "button" : {
+    "marginTop"       : 10,
+    "width"           : 96,
+    "height"          : 32,
+    "backgroundColor" : "#1e90ff",
+    "alignSelf"       : "center",
+    "alignItems"      : "center"
+  },
+
+  "buttonred" : {
+    "backgroundColor" : "#990000",
+    "borderColor"      : "#990000"
+  },
+
+  "buttonedit" : {
+    "backgroundColor" : "#990000",
+    "borderColor"      : "#990000",
+  },
+
+  "buttonlblue": {
+    "alignItems"      : "center",
+    "justifyContent"  : "center",
+    "backgroundColor" : "#1976D2",
+    "borderRadius"    : 20,
+    "height"          : 40,
+    "zIndex"          : 100,
+  },
+
+  "textBeta"     : {
+    "marginTop"  : 5,
+    "textAlign"  : "center",
+    "fontSize"   : 12,
+    "fontWeight" : "bold",
+    "color"      : "white"
+  },
+
+  "textIconBase"     : {
+    "alignSelf" : "center",
+    "fontSize"   : 20
+  },
+
+  "text"     : {
+  	"alignSelf" : "center",
+  	"fontSize"   : 18
+  },
+  "littleText"     : {
+    "alignSelf" : "center",
+    "fontSize"   : 12
+  },
+
+  "textProfile"     : {
+    "alignSelf" : "center",
+     "color"    : "black",
+     "fontSize" : 22,
+     "marginTop": 10
+  },
+  "textProfile2"     : {
+    "alignSelf" : "center",
+     "color"    : "black",
+     "fontSize" : 20,
+     "marginTop": 10
+  },
+  "textProfileHeader"     : {
+    "fontWeight" : "bold",
+     "color"    : "black",
+     "fontSize" : 26,
+  },
+  "iconLineProfileHeader"        : {
+    "position"   : "absolute",
+    "zIndex"     : 99,
+    "width"      : 200,
+    "height"     : 60,
+    "left"       : 42,
+    "top"        : 9,
+    },
+
+
+  "toolbar"  : {
+    "backgroundColor" : "#337AB7",
+    "height"          : 56,
+  },
+  "drawerHead" : {
+  	"flex"           : 1,
+  	"flexDirection"  : "row",
+  	"margin"         : 10,
+  	"marginTop"      : 30
+  },
+  "headButtons" : {
+  	"flex"           : 1,
+  	"flexDirection"  : "column",
+  	//"alignSelf"      : "flex-end",
+  	//"alignItems"     : "flex-start",
+  },
+  "img" : {
+  	"alignSelf"  : "flex-start",
+  	"height"     : 80,
+  	"width"      : 80
+  },
+  "logo_main" : {
+    "alignSelf"  : "flex-start",
+    "height"     : 120,
+    "width"      : 120
+  },
+  "line" : {
+  	"height"           : 2,
+  	"width"            : 290,
+  	"margin"           : 5,
+  	"backgroundColor"  : "orange",
+    "alignSelf"        : "center",
+  },
+  "errorMessages" : {
+    "backgroundColor"   : "red",
+    "color"             : "white"
+  },
+  "successMessages" : {
+    "backgroundColor"   : "green",
+    "color"             : "white"
+  },
+  "profileImage" : {
+    "alignItems"  : "center",
+    "marginTop"    : 10,
+    "height"      : 160,
+    "width"       : 160
+  },
+  "visitImg" : {
+    "alignSelf"  : "center",
+    "borderRadius": 70,
+    "marginTop"    : 15,
+    "marginBottom" : 15,
+    "height"      : 160,
+    "width"       : 160
+  },
+  "profileImage" : {
+    "borderRadius": 50,
+    "alignSelf"    : "center",
+    "height"      : 120,
+    "width"       : 120
+  },
+  "fullProfileImage" : {
+    "alignSelf"  : "center",
+    "alignItems" : "center",
+    "borderRadius": 50,
+    "height"     : 120,
+    "width"      : 120
+  },
+  "centeredView" : {
+    "alignSelf"  : "center",
+    "alignItems" : "center"
+  },
+  "row" : {
+    "flexDirection"  : "row",
+  }
+}

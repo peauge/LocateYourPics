@@ -1,0 +1,20 @@
+ {
+   "presets": ["react-native"],
+   "plugins": [
+     ["module-resolver", {
+       "cwd": "babelrc",
+       "root": ["./sources"],
+       "alias": {
+         "components" : "./sources/components",
+         "framework" : "./sources/components/framework",
+         "services" : "./sources/services",
+         "stores" : "./sources/stores",
+         "actions" : "./sources/actions",
+         "backgroundJobs" : "./sources/backgroundJobs",
+         "mixins" : "./sources/mixins",
+         "tests" : "./sources/tests",
+         "images" : "./images"
+       }
+     }]
+   ]
+ }

@@ -1,0 +1,166 @@
+{
+  "en": {
+    "SignForm": {
+      "username": "User name",
+      "email": "Email",
+      "email_again": "Email again",
+      "newMail": "New mail",
+      "password": "Password",
+      "newPassword" : "New password",
+      "password_again": "Password again",
+      "firstName": "Firstname",
+      "lastName": "Lastname",
+      "interests": "Interests",
+      "description": "Description",
+      "gender": "Gender",
+      "birthdate": "Birthday",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone"
+    },
+    "PublicWelcomePage": {
+      "forgot_password": "Forgot Password?",
+      "already_have_account": "Already have an account?",
+      "register": "Register",
+      "show_password": "Show Password"
+    },
+    "ForgotPassword": {
+      "reset_password": "Reset password"
+    },
+    "Login": {
+      "login": "Log in"
+    },
+    "Register": {
+      "register": "Register"
+    },
+    "FieldValidation": {
+      "valid_user_name": "6-12 in length with letters or numbers",
+      "valid_email": "Provide valid email",
+      "valid_password": "6-12 in length, with a number and special character: !@#$%^&*",
+      "valid_password_again": "Passwords must match"
+    }
+  },
+  "en-US": {
+    "SignForm": {
+      "username": "User name",
+      "email": "Email",
+      "email_again": "Email again",
+      "newMail": "New mail",
+      "password": "Password",
+      "newPassword" : "New password",
+      "password_again": "Password again",
+      "firstName": "Firstname",
+      "lastName": "Lastname",
+      "interests": "Interests",
+      "description": "Description",
+      "gender": "Gender",
+      "birthdate": "Birthday",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone"
+    },
+    "PublicWelcomePage": {
+      "forgot_password": "Forgot Password?",
+      "already_have_account": "Already have an account?",
+      "register": "Register",
+      "show_password": "Show Password"
+    },
+    "ForgotPassword": {
+      "reset_password": "Reset password"
+    },
+    "Login": {
+      "login": "Log in"
+    },
+    "Register": {
+      "register": "Register"
+    },
+    "FieldValidation": {
+      "valid_user_name": "6-12 in length with letters or numbers",
+      "valid_email": "Provide valid email",
+      "valid_password": "6-12 in length, with a number and special character: !@#$%^&*",
+      "valid_password_again": "Passwords must match"
+    }
+  },
+  "fr": {
+    "SignForm": {
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "email_again": "Email again",
+      "newMail": "Nouvelle email",
+      "password": "Mot de passe",
+      "newPassword" : "Nouveau mot de passe",
+      "password_again": "Mot de passe à nouveau",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "interests": "Interêts",
+      "description": "Déscription",
+      "gender": "Sexe",
+      "birthdate": "Annivaisaire",
+      "city": "Ville",
+      "country": "Pays",
+      "phone": "Téléphone"
+    },
+    "PublicWelcomePage": {
+      "forgot_password": "Mot de passe oublié?",
+      "already_have_account": "Vous avez déjà compte?",
+      "register": "Registre",
+      "show_password": "Montrer le mot de passe"
+    },
+    "ForgotPassword": {
+      "reset_password": "Réinitialiser le mot de passe"
+    },
+    "Login": {
+      "login": "S'identifier"
+    },
+    "Register": {
+      "register": "Registre"
+    },
+    "FieldValidation": {
+      "valid_user_name": "6-12 de longueur avec des lettres ou des chiffres",
+      "valid_email": "Fournir email valide",
+      "valid_password": "6-12 en longueur, avec un nombre et un caractère spécial: !@#$%^&*",
+      "valid_password_again": "les mots de passe doivent correspondre"
+    }
+  },
+  "fr-FR": {
+    "SignForm": {
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "email_again": "Email again",
+      "newMail": "Nouvelle email",
+      "password": "Mot de passe",
+      "password_again": "Mot de passe à nouveau",
+      "newPassword" : "Nouveau mot de passe",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "interests": "Interêts",
+      "description": "Déscription",
+      "gender": "Sexe",
+      "birthdate": "Annivaisaire",
+      "city": "Ville",
+      "country": "Pays",
+      "phone": "Téléphone"
+    },
+    "PublicWelcomePage": {
+      "forgot_password": "Mot de passe oublié?",
+      "already_have_account": "Vous avez déjà compte?",
+      "register": "Registre",
+      "show_password": "Montrer le mot de passe"
+    },
+    "ForgotPassword": {
+      "reset_password": "Réinitialiser le mot de passe"
+    },
+    "Login": {
+      "login": "S'identifier"
+    },
+    "Register": {
+      "register": "Registre"
+    },
+    "FieldValidation": {
+      "valid_user_name": "6-12 de longueur avec des lettres ou des chiffres",
+      "valid_email": "Fournir email valide",
+      "valid_password": "6-12 en longueur, avec un nombre et un caractère spécial: !@#$%^&*",
+      "valid_password_again": "les mots de passe doivent correspondre"
+    }
+  }
+}
