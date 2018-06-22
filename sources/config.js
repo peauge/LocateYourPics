@@ -1,18 +1,10 @@
 //import log4js from 'log4js';
 
 function getApiUrl() {
-    if (process.env.API_URL) {
-        return process.env.API_URL;
-    } else if (process.env.ENVIRONMENT === 'production') {
-        return 'dev.l0cal:4242/api';
-    }
 
-    /*if (process.env.NODE_ENV === 'production') {
-        return 'http://82.223.82.41:3000';
-    }*/
+   // return   'https://pickaguide.fr:3000';
+   return   'http://86.247.106.75';
 
-  //  return 'http://192.168.0.102:3030';
-   return   'https://pickaguide.fr:3000';
 }
 
 /*function setUpLogger() {

@@ -4,9 +4,10 @@ import SearchActions  from 'actions/Search.js';
 
 export default class PictureApi {
 
-  static getMyPictures() {
+  static getMyPictures(id = "1") {
     //console.log("get Picture service");
-    PromiseApi.auth().get('/proposals')
+    PromiseApi.get("/api/users/" + id + "/photos")
+    // PromiseApi.auth().get('/proposals')
     .then((result) => {
 
         if (result.error) {
@@ -80,7 +81,7 @@ export default class PictureApi {
   }
 
   static createPicture(form) {
-    //console.log("Picture service !!!", form);
+    console.log("Picture service !!!", form);
     const files = form.photos;
     delete form.photos;
 

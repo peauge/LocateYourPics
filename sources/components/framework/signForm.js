@@ -226,23 +226,23 @@ var SignForm = CreateClass({
 
       case (REGISTER):
         signForm = t.struct({
-          firstName: t.String,
-          lastName: t.String,
+          first_name: t.String,
+          last_name: t.String,
           email: t.String,
           password: t.String        })
-          options.fields['firstName'] = cloneDeep(name);
-          options.fields['firstName'].template = templateInputBaseRounded;
-          options.fields['firstName'].error = I18n.t('FormError')['errorFirstName'];
-          options.fields['firstName'].placeholder = I18n.t('SignForm')['firstName'];
+          options.fields['first_name'] = cloneDeep(name);
+          options.fields['first_name'].template = templateInputBaseRounded;
+          options.fields['first_name'].error = I18n.t('FormError')['errorfirst_name'];
+          options.fields['first_name'].placeholder = I18n.t('SignForm')['first_name'];
 
-          Object.assign(options.fields['firstName'].config,
+          Object.assign(options.fields['first_name'].config,
             {reg: regName, styleText: styles.inputsWhite, icon: 'md-contact', iconStyle : styles.iconStyleBaseRounded})
-          options.fields['lastName'] = cloneDeep(name)
-          options.fields['lastName'].template = templateInputBaseRounded;
-          options.fields['lastName'].error = I18n.t('FormError')['errorLastName'];
-          options.fields['lastName'].placeholder = I18n.t('SignForm')['lastName'];
+          options.fields['last_name'] = cloneDeep(name)
+          options.fields['last_name'].template = templateInputBaseRounded;
+          options.fields['last_name'].error = I18n.t('FormError')['errorlast_name'];
+          options.fields['last_name'].placeholder = I18n.t('SignForm')['last_name'];
 
-          Object.assign(options.fields['lastName'].config,
+          Object.assign(options.fields['last_name'].config,
             {reg: regName, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBaseRounded, icon: 'md-contact'})
         options.fields['email'] = email
         options.fields['password'] = password
@@ -325,25 +325,25 @@ var SignForm = CreateClass({
 
       case (EDIT_PROFIL):
         signForm = t.struct({
-          firstName: t.String,
-          lastName: t.String,
+          first_name: t.String,
+          last_name: t.String,
           description: t.String,
           city: t.String,
           country: t.String,
         })
-        options.fields['firstName'] = cloneDeep(name);
-        options.fields['firstName'].template = templateInputBase;
-        options.fields['firstName'].error = I18n.t('FormError')['errorFirstName'];
-        options.fields['firstName'].placeholder = I18n.t('SignForm')['firstName'];
+        options.fields['first_name'] = cloneDeep(name);
+        options.fields['first_name'].template = templateInputBase;
+        options.fields['first_name'].error = I18n.t('FormError')['errorfirst_name'];
+        options.fields['first_name'].placeholder = I18n.t('SignForm')['first_name'];
 
-        Object.assign(options.fields['firstName'].config,
+        Object.assign(options.fields['first_name'].config,
           {reg: regName, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
-        options.fields['lastName'] = cloneDeep(name)
-        options.fields['lastName'].template = templateInputBase;
-        options.fields['lastName'].error = I18n.t('FormError')['errorLastName'];
-        options.fields['lastName'].placeholder = I18n.t('SignForm')['lastName'];
+        options.fields['last_name'] = cloneDeep(name)
+        options.fields['last_name'].template = templateInputBase;
+        options.fields['last_name'].error = I18n.t('FormError')['errorlast_name'];
+        options.fields['last_name'].placeholder = I18n.t('SignForm')['last_name'];
 
-        Object.assign(options.fields['lastName'].config,
+        Object.assign(options.fields['last_name'].config,
           {reg: regName, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
 
         // options.fields['interests'] = interests

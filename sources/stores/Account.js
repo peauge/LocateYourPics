@@ -48,24 +48,25 @@ class AccountStore {
 
     onRequestSignup(form) {
         this.form = form
-        //this.account = form;
+        this.account = form;
         AccountApi.signup(form);
         return false;
     }
 
     onRequestSignupSuccess(result) {
-        this.code = result.code;
-        this.msg = result.message;
+        // this.code = result.code;
+        // this.msg = result.message;
         AccountActions.requestSignin.defer({"email" : this.form.email,
                                          "password" : this.form.password});
     }
 
     onRequestSignupError(result) {
-        this.origin = "Sign up Error";
-        this.code = result.code;
-        this.msg = result;
-        this.account = null;
-        this.alert = true;
+      console.log("onRequestSignupError !!!", result);
+        // this.origin = "Sign up Error";
+        // this.code = result.code;
+        // this.msg = result;
+        // this.account = null;
+        // this.alert = true;
     }
 
     onAlertDismiss() {
@@ -83,6 +84,8 @@ class AccountStore {
     onRequestSigninSuccess(result) {
             // Persistent save of the connection
         //Keychain.setGenericPassword(this.form.email, this.form.password);
+        console.log("ICI", result);
+
         this.alert = false;
         this.code = 1;
         this.msg = result.message;
@@ -103,27 +106,16 @@ class AccountStore {
         LocationApi.nearAds(0.0922);
 
         AccountApi.getAccount(this.credentials.id);
-        AccountApi.isGuide(result.id);
+        this.whatChange = null;
+        this.isGuide = true;
+        this.watchId = sendLocation();
+        PictureActions.getMyPictures.defer();
     }
 
     onRequestSigninError(result) {
         this.msg = result;
         this.origin = "Sign in Error";
         this.alert = true;
-    }
-
-    onIsGuideSuccess(result) {
-      this.whatChange = null;
-      this.isGuide = result.isGuide;
-      this.watchId = sendLocation();
-      PictureActions.getMyPictures.defer();
-    }
-
-    onIsGuideError(result) {
-      // this.code = result.code;
-      this.msg = result;
-      this.origin = "Is guide error";
-      this.alert = true;
     }
 
     onGetAccount() {

@@ -29,7 +29,7 @@ var ErrorAlert = class ErrorAlertClass {
             if (errorMessage !== '') {
               console.log(errorMessage);
                     // Alert.alert(typeof errorOrigin === "string" ? errorOrigin : "Error",
-                    //   !_.isUndefined(errorMessage.msg) ? errorMessage.msg : errorMessage,
+                    //   !_.isUndefined(errorMessage.msg) && typeof errorMessage.msg === "string" ? errorMessage.msg : errorMessage,
                     //   [
                     //     {text: 'OK', onPress: () => console.log('OK Pressed from Alert')},
                     //   ],

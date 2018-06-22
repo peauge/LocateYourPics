@@ -52,14 +52,6 @@ export class PublicWelcomePage extends React.Component{
       });
       this.props.navigation.dispatch(connectionAction);
     }
-    /*Keychain.getGenericPassword()
-    .then((credentials) => {
-      console.log('Credentials successfully loaded for user ' + credentials.username + ' ' + credentials.password);
-      if (credentials != null && credentials.username != null && credentials.username != undefined) {
-        AccountActions.requestSignin({email : credentials.username,
-                                    password : credentials.password});
-      }
-    })*/
   }
 
   onSelectPosition(event){
@@ -85,11 +77,6 @@ animatedStart(value) {
 
 	render(){
 		console.log("WelcomePageRender");
-		/*if (this.state.connected === true) {
-			return (
-				<PrivateWelcomePage parent={this} lang={this.state.lang}/>
-			);
-		}*/
 
 		// TODO : style dans le json a metre
     // TODO : Prendre en compte MODE HORIZONTAL avec dimension ex : ButtonLoading

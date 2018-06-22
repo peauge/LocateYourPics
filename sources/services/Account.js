@@ -3,13 +3,14 @@ import AccountActions    from 'actions/Account.js';
 
 export default class AccountApi {
     static signup(form) {
-        PromiseApi.post('/public/sign-up', form)
+      PromiseApi.post('/api/users', form)
+        // PromiseApi.post('/public/sign-up', form)
         .then((result) => {
-            //console.log("SignUp success");
-            if (result.code != 0) {
-                AccountActions.requestSignupError(result);
-                return;
-            }
+            console.log("Status !!! : ", result);
+            // if (result.code != 0) {
+            //     AccountActions.requestSignupError(result);
+            //     return;
+            // }
             AccountActions.requestSignupSuccess(result);
         })
         .catch((err) => {
@@ -21,23 +22,9 @@ export default class AccountApi {
         });
     }
 
-    static isGuide(id) {
-      //console.log("IsGuide !!!!!");
-        PromiseApi.get('/public/users/' + id + '/isGuide')
-        .then((result) => {
-            /*if (result.code != 0) {
-                AccountActions.isGuideError(result);
-                return;
-            }*/
-            AccountActions.isGuideSuccess(result);
-        })
-        .catch((err) => {
-            AccountActions.isGuideError(err);
-        });
-    }
-
     static signin(form) {
-        PromiseApi.post('/public/sign-in', form)
+      // PromiseApi.post('/public/sign-in', form)
+        PromiseApi.post('/api/users/login', form)
         .then((result) => {
             if (result.code && result.code != 0) {
                 AccountActions.requestSigninError(result);
@@ -51,7 +38,8 @@ export default class AccountApi {
     }
 
     static getAccount(id) {
-        PromiseApi.auth().get('/accounts/' + id)
+      // PromiseApi.auth().get('/accounts/' + id)
+        PromiseApi.auth().get('/users/:' + id)
         .then((result) => {
             if (result.code && result.code != 0) {
                 AccountActions.getAccountError(result);
@@ -109,7 +97,8 @@ export default class AccountApi {
       }
 
     static delete(form) {
-        PromiseApi.auth().put('/users/remove', form.User)
+      PromiseApi.auth().delete('api/users/:', form.User.id)
+      // PromiseApi.auth().put('/users/remove', form.User)
         .then((result) => {
             if (result.error) {
                 AccountActions.requestDeleteError(result);

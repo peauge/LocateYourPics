@@ -18,6 +18,7 @@ export default class PromiseApi {
 
   static _handleResponse(requestBuilder, callbacks) {
     requestBuilder.end((err, res) => {
+      console.log(err, res);
       if (err) {
         if (String(err).indexOf('Request has been terminated') !== -1) {
           callbacks.reject('Server seems to be down, please try again later');
@@ -62,6 +63,7 @@ export default class PromiseApi {
 
   static post(url, body) {
     return new Promise((resolve, reject) => {
+      console.log("REQUETE ICI:", `${config.apiUrl}${url}`, JSON.stringify(body))
       const requestBuilder = request
         .post(`${config.apiUrl}${url}`, JSON.stringify(body))
         .set('Content-Type', 'application/json')
