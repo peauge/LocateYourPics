@@ -3,12 +3,10 @@ import { Container, Header, Button, Content, Icon, List, ListItem, Text, Thumbna
 import React, { Component } from 'react';
 import PictureActions        from 'actions/Pictures.js';
 import PictureStore          from 'stores/Pictures.js';
-import ButtonLoading        from "framework/ButtonLoading.js"
 import Styles               from 'components/styles.json';
 import ErrorAlert           from 'framework/ErrorAlert.js'
 import IconF 			          from "react-native-vector-icons/FontAwesome";
 import ButtonBack           from "framework/ButtonBack"
-import ButtonPlus           from "framework/ButtonPlus"
 import ButtonDelete         from "framework/ButtonDelete.js"
 import SignForm             from 'framework/signForm.js';
 import ImagePicker          from 'react-native-image-crop-picker';
@@ -25,7 +23,6 @@ I18n.translations = Translations
 export class Pictures extends Component {
     constructor(props, context) {
     super(props, context);
-    // console.log("Pictures !", PictureStore.getState()["Pictures"]);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     this.state = {
@@ -37,11 +34,7 @@ export class Pictures extends Component {
         gallerySource : null,
         displayModalAddress : false,
         Picture : {
-          title : "",
-          description : "",
           photos : [],
-          city : "",
-          country : "",
           location : null,
         },
         active : false,
@@ -53,7 +46,7 @@ export class Pictures extends Component {
     this.toggle = this.toggle.bind(this);
     this.onChange = this.onChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.updateMeetingPoint = this.updateMeetingPoint.bind(this);
+    this.setPicturePoint = this.setPicturePoint.bind(this);
     this.changePhotos = this.changePhotos.bind(this);
     this.showGallery = this.showGallery.bind(this);
     this.deleteImage = this.deleteImage.bind(this);
@@ -74,41 +67,27 @@ export class Pictures extends Component {
 
   create() {
     PictureActions.createPicture(this.state.Picture);
-    this.setState({displayModal : false, _id : -1, Picture : {title : "",
-    description : "",
-    photos : [], city : "",
-    country : "", location : null}});
-  }
-
-  update() {
-    PictureActions.updatePicture(this.state.Picture);
-    this.setState({displayModal : false, _id : -1, Picture : {title : "",
-    description : "",
-    photos : [], city : "",
-    country : "", location : null}});
+    this.setState({displayModal : false, _id : -1, Picture : {
+    photos : [], location : null}});
   }
 
   delete() {
     PictureActions.deletePicture(this.state._id);
-    this.setState({displayModal : false, _id : -1, Picture : {title : "",
-    description : "",
-    photos : [], city : "",
-    country : "", location : null}});
+    this.setState({displayModal : false, _id : -1, Picture : {
+    photos : [], location : null}});
   }
 
   toggle() {
     PictureActions.togglePicture({id : this.state._id, active : this.state.active});
-    this.setState({displayModal : false, _id : -1, Picture : { title : "",
-    description : "",
-    photos : [], city : "",
-    country : "", location : null}});
+    this.setState({displayModal : false, _id : -1, Picture : {
+    photos : [], location : null}});
   }
 
   handleChange(field) {
     this.setState({Picture : field});
   }
 
-  updateMeetingPoint(newPoint) {
+  setPicturePoint(newPoint) {
     var newPicture = this.state.Picture;
     newPicture.location = newPoint;
     this.setState({Picture : newPicture, displayModalAddress : false});
@@ -160,20 +139,11 @@ export class Pictures extends Component {
   }
 
   showGallery(source) {
-     //this.props.navigation.navigate('Gallery', {sources : this.state.Picture.photos, initialPage : source.index, deleteImage: this.deleteImage});
      this.setState({displayModalGallery : true, gallerySource : {sources : this.state.Picture.photos, initialPage : source.index, deleteImage: this.deleteImage}});
   }
 
   render() {
     var form = null;
-    // if (this.state.Picture.photos) {
-    //   this.state.Picture.photos.map((photo, idx) => {
-    //   sources[idx] = {uri: "data:image/png;base64," + photo.data, source: {uri: "data:image/png;base64," + photo.data}
-    //     , dimensions: { width: 100, height: 100 }};
-    //   });
-    // }
-    //console.log("render sources ", this.state.Picture.photos);
-
     var pictures = null;
     if (this.state.dataSource != null) {
       pictures = <List dataArray={this.state.dataSource._dataBlob.s1}
@@ -313,12 +283,7 @@ export class Pictures extends Component {
     pictures = null;
   }
   if (this.state.displayModalAddress == true)
-    return(<ChooseNewAdAddress updateMeetingPoint={this.updateMeetingPoint}/>);
-
-  // if (this.state.displayModalGallery == true)
-  //   return(<PhotosGallery data={this.state.gallerySource} hide={() => this.setState({displayModalGallery : false})}/>);
-
-
+    return(<ChooseNewAdAddress setPicturePoint={this.setPicturePoint}/>);
   return (
       <Container>
         <Modal style={{flex : 1}} visible={this.state.displayModalGallery} hardwareAccelerated={true} onRequestClose={() => this.setState({displayModalGallery : false})} >

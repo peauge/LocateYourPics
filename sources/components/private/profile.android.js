@@ -5,13 +5,10 @@ import StarRating 			from 'react-native-star-rating';
 import {EditProfile}    from './editProfile.android.js'
 import {EditFriend}    from './editFriend.android.js'
 import ProfileStore     from 'stores/Profile.js';
-import ButtonLoading    from "framework/ButtonLoading";
 import ProfileActions   from 'actions/Profile.js';
 import Styles           from 'components/styles.json';
 import ErrorAlert       from 'framework/ErrorAlert.js'
 import Avatar           from 'react-native-elements';
-import TagInputInterest from 'framework/Tags.js'
-
 
 var styles = StyleSheet.create(Styles);
 
@@ -47,7 +44,6 @@ export class Profile extends React.Component{
   }
 
   onChange(profile) {
-    //console.log("onChangeProfile", profile);
     var state = Object.assign({}, this.state);
 
     state = ProfileStore.getState();
@@ -62,12 +58,10 @@ export class Profile extends React.Component{
   }
 
   handleEdit() {
-    //console.log("handleEdit");
     this.setState({edit : true});
   }
 
   handleFriend() {
-    //console.log("handleEdit");
     this.setState({friend : true});
   }
 
@@ -85,10 +79,8 @@ export class Profile extends React.Component{
 					<Right/>
 				</ListItem>;
 
-    //console.log("render PROFILE :", this.state.profile);
     let buttonGuide = null;
     if (this.state.edit == true) {
-      //this.props.parent.toggleModule("Profile");
       return(<EditProfile parent={this}/>);
     }
     if (this.state.friend == true) {

@@ -38,12 +38,10 @@ export class EditMail extends React.Component{
   }
 
   onChange(store) {
-    // console.log("onChange", store.code);
     if (store.code == 200) {
       this.props.parent.setState({mail : false});
       return;
     }
-    // this.setState({code : store.code, msg : store.msg});
   }
 
   handleSubmit() {

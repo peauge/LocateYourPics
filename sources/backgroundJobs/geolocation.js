@@ -2,11 +2,8 @@ import LocationActions  from 'actions/Location.js';
 import AccountStore     from 'stores/Account.js'
 
 module.exports = () => {
-  //console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Geoloc!!!!!!!!!!!!!!!!!!!!!!!");
   var id = navigator.geolocation.watchPosition(
     (position) => {
-      //console.log("# Salut !!!!!!");
-      //console.log("!! WatchPosition !! ", AccountStore.getState().account, " id : ", id);
       if (AccountStore.getState().account == null)
         navigator.geolocation.clearWatch(id);
       LocationActions.sendLocation(position.coords);

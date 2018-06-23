@@ -6,7 +6,6 @@ import ProfileStore       from 'stores/Profile.js';
 import ProfileActions     from 'actions/Profile.js';
 import ImagePicker        from 'react-native-image-crop-picker';
 import SignForm           from 'framework/signForm.js';
-import ButtonLoading      from "framework/ButtonLoading";
 import ButtonBack         from "framework/ButtonBack"
 import Styles             from 'components/styles.json';
 
@@ -32,11 +31,9 @@ export class EditFriend extends React.Component{
 
   componentWillUnmount() {
     ProfileStore.unlisten(this.onChange);
-    //ProfileActions.requestProfile();
   }
 
   onChange(store) {
-    //console.log("onChange", store.code);
     if (store.code == 200) {
       this.props.parent.setState({friend : false});
       return;
@@ -45,7 +42,6 @@ export class EditFriend extends React.Component{
   }
 
   handleSubmit() {
-    // this.forceUpdate();
     ProfileActions.editProfile(this.state.profile);
   }
 
@@ -60,7 +56,6 @@ export class EditFriend extends React.Component{
 	render() {
     var profile = this.state.profile;
 
-    //console.log("render edit:", this.state.profile);
 		return (
         <View>
         <Button rounded light onPress={this.handleCancel} style={{marginTop : 30}}>

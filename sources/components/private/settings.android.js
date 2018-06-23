@@ -5,7 +5,6 @@ import { Container, Header, Content, List, ListItem, Text, Icon, Left, Body, Rig
 import Styles          from 'components/styles.json';
 import IconF 			     from "react-native-vector-icons/FontAwesome";
 import User            from 'stores/Account.js';
-import ButtonLoading      from "framework/ButtonLoading";
 import ButtonBack         from "framework/ButtonBack"
 import AccountActions  from 'actions/Account.js';
 import SignForm        from 'framework/signForm.js';
@@ -24,7 +23,6 @@ export class Settings extends React.Component{
 constructor(props, context) {
     super(props, context);
 
-    //console.log("*", User.getState().account);
     this.state = {
      	User : User.getState(),
       res : {
@@ -54,12 +52,10 @@ constructor(props, context) {
   }
 
   componentWillUnmount() {
-    //console.log("WILL UNMOUNT PARAM");
     User.unlisten(this.onChange);
   }
 
   onChange(user) {
-    //console.log("onChange", user);
     var state = Object.assign({}, this.state);
     state.User = user;
     this.setState(state);
@@ -70,7 +66,6 @@ constructor(props, context) {
   }
 
   handleSubmitChanges() {
-    /// A vérifier
     AccountActions.requestSignin(this.state);
   }
 
@@ -87,7 +82,7 @@ constructor(props, context) {
   }
 
   logout() {
-    AccountActions.requestSignout();
+    AccountActions.requestSignoutSuccess();
   }
 
   updateNotification() {
@@ -192,59 +187,3 @@ triggerAlertDelete() {
 		);
 	}
 }
-
-//
-// <View style={styles.containerParameter}>
-//   <View  style={styles.boxContainerParameter}>
-//   <ButtonLoading styleContainer={[styles.boxContainerParameter, styles.boxOneParameter]} buttonText="Update my password" onPressOut={this.handlePasswordChanges}/>
-//   <ButtonLoading styleContainer={[styles.boxContainerParameter, styles.boxOneParameter]} buttonText="Update my e-mail" onPressOut={this.handleMailChanges}/>
-//   <View  style={[styles.boxContainerParameter, styles.boxTwoParameter]} >
-//   </View>
-//   <View  style={[styles.boxContainerParameter, styles.boxTwoParameter]} >
-//   <SignForm
-//         formType={4}
-//         form={this.state.User}
-//         value={this.state.User}
-//         onChange={this.handleChange}
-//         />
-//   </View>
-//     <ButtonDelete store={User} onPressOut={this.handleSubmitSuppression}/>
-//   </View>
-// </View>
-
-// <View style={styles.containerParameter}>
-//   <View  style={[styles.boxContainerParameter, styles.boxOneParameter]} >
-//   <ButtonLoading buttonText="Modifier mon mot de passe" onPressOut={this.handlePasswordChanges}/>
-//   <ButtonLoading buttonText="Modifier mon email" onPressOut={this.handleMailChanges}/>
-//   </View>
-//   <View  style={[styles.boxContainerParameter, styles.boxTwoParameter]} >
-//   <Modal
-//    animationType="slide"
-//    transparent={false}
-//    visible={this.state.modalVisible}
-//    onRequestClose={() => {this.setState({displayModal : false})}}
-//    >
-//     <SignForm
-//       formType={4}
-//       form={this.state.User}
-//       value={this.state.User}
-//       onChange={this.handleChange}
-//       />
-//       <ButtonDelete onPressOut={this.handleSubmitSuppression}/>
-//   </Modal>
-//   </View>
-//   <View style={[styles.boxContainerParameter, styles.boxThreeParameter]} >
-//   <ButtonLoading buttonText="Supprimer mon compte" onPressOut={() => {this.setState({displayModal : true})}}/>
-//   </View>
-// </View>
-
-
-
-
-// <View style={[styles.boxContainerParameter, styles.boxTwoParameter]}>
-//   <ButtonLoading buttonText="Modifier mon mot de passe" onPressOut={this.handlePasswordChanges}/>
-//   <ButtonLoading buttonText="Modifier mon email" onPressOut={this.handleMailChanges}/>
-// </View>
-// <View style={[styles.boxContainerParameter, styles.boxThreeParameter]}>
-// <ButtonDelete onPressOut={this.handleSubmitSuppression}/>
-// </View>

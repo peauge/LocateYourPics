@@ -116,7 +116,7 @@ export class Welcome extends React.Component{
     super(props, context);
     this.state =  {
 			region   : LocationStore.getState().location,
-      markers : LocationStore.getState().nearGuides,
+      markers : LocationStore.getState().nearPics,
       Pictures  : LocationStore.getState().nearAds
    	}
     this.onRegionChange = this.onRegionChange.bind(this);
@@ -127,7 +127,7 @@ export class Welcome extends React.Component{
 
   componentDidMount() {
     LocationStore.listen(this.onChange);
-    this.setInterval(() =>  {LocationActions.getNearGuides(0.0922); LocationActions.getNearAds(0.0122);}, 90000);
+    this.setInterval(() =>  {LocationActions.getNearPics(0.0922); LocationActions.getNearAds(0.0122);}, 90000);
   }
 
   componentWillUnmount() {
@@ -135,13 +135,13 @@ export class Welcome extends React.Component{
   }
 
   onChange(Location) {
-    if (Location.location == this.state.region && Location.nearGuides == this.state.markers)
+    if (Location.location == this.state.region && Location.nearPics == this.state.markers)
       return;
     if (this.state.region.latitude === 0 && this.state.region.longitude === 0) {
       console.log("initial change");
-      this.setState({region : Location.location, markers : Location.nearGuides , Pictures : Location.nearAds});
+      this.setState({region : Location.location, markers : Location.nearPics , Pictures : Location.nearAds});
     }
-    this.setState({markers : Location.nearGuides, Pictures : Location.nearAds});
+    this.setState({markers : Location.nearPics, Pictures : Location.nearAds});
   }
 
   onRegionChange(region) {
@@ -160,7 +160,7 @@ export class Welcome extends React.Component{
       <TouchableOpacity
         activeOpacity={1}
         style={styles.slideInnerContainer}
-        key={"nearGuides" + item._id}
+        key={"nearPics" + item._id}
         onPress={() => this.props.navigation.navigate('Profile', {data : item})}
       >
         <View style={styles.imageContainer}>

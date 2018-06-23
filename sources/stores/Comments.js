@@ -90,16 +90,11 @@ class CommentsStore {
   }
 
   onCreateError(error) {
-    // this.error.msg = "Comment can't be posted";
-    // this.error.origin = "Comment error";
-    // this.errorAlert.checkError(this.error);
     this.error = {
       msg: "",
       origin: "",
       code: ""
     };
-    // this.comments = error.comments;
-    // this.id = error._id;
   }
 
   onCreateSuccess(result) {

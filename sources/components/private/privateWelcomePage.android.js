@@ -51,9 +51,7 @@ export class PrivateWelcomePage extends React.Component{
 		this.logout = this.logout.bind(this);
 		this.navigationView = this.navigationView.bind(this);
 		this.onActionSelected = this.onActionSelected.bind(this);
-		this.changePhoto = this.changePhoto.bind(this);
-		//this.navigateToGallery = this.navigateToGallery.bind(this);
-
+		this.takePhoto = this.takePhoto.bind(this);
   }
 
   handleBack() {
@@ -66,7 +64,6 @@ export class PrivateWelcomePage extends React.Component{
   }
 
 	onChangeAccount(store) {
-		//console.log("onChangeAccount", store);
 		if (store.code == null && store.account == null) {
 			const logoutAction = NavigationActions.reset({
 				index: 0,
@@ -81,7 +78,7 @@ export class PrivateWelcomePage extends React.Component{
 	}
 
 
-	changePhoto(choice) {
+	takePhoto(choice) {
 			console.log("Choice : ", choice);
 			if (choice == "camera") {
 				console.log("Camera !!!!");
@@ -91,29 +88,20 @@ export class PrivateWelcomePage extends React.Component{
 					cropping: true,
 					includeBase64 : true
 				}).then(image => {
-				console.log("images:", image);
-				// var newProfile = Object.assign({}, this.state.profile);
-			 // newProfile.photoUrl = image.path;
-			 // newProfile.photo = image;
-			 // this.setState({profile : newProfile});
+				// TODO : set photo with coordonate on the map
 				});
 			}
 		}
 
 	componentDidMount() {
-    console.log("!!!!!!!!##!!!!!!!!!!!!!!!");
 		AccountStore.listen(this.onChangeAccount);
 		BackHandler.addEventListener('hardwareBackPress', this.handleBack);
   }
 
   componentWillUnmount() {
-    console.log("!!!!!!!!PrivateWelcomePage unmount!!!!!!!!!!!!!!!");
 		AccountStore.unlisten(this.onChangeAccount);
 		this._drawer = null;
-		//this._toolbar = null;
     BackHandler.removeEventListener('hardwareBackPress', this.handleBack);
-		//this._unsubcribeFromStore && this._unsubcribeFromStore();
-    //this._handleStateUpdate = () => {};
   }
 
 	toggleModule(module) {
@@ -122,11 +110,6 @@ export class PrivateWelcomePage extends React.Component{
 			this._drawer.closeDrawer();
 		}
 	}
-
-	/*toggleLanguage : function(e) {
-		this.props.parent.setState({lang : e.currentTarget.id});
-		this.setState({dropdown : "dropdown"});
-	},*/
 
 	togglePopup() {
 		if (this._drawer !== null) {
@@ -146,9 +129,6 @@ export class PrivateWelcomePage extends React.Component{
 	}
 
 	navigationView() {
-		//const content 		= Text[this.props.lang];
-    /*style={styles.drawerHead} 2eme view*/ /*style={styles.heads} 3 eme view*/ /*style={styles.drawer} 4eme*/
-
 		return (
 			<Profile lang={this.props.lang} parent={this} navigation={this.props.navigation}/>
 		);
@@ -160,19 +140,13 @@ export class PrivateWelcomePage extends React.Component{
 			this.props.navigation.dispatch('Search');
 		}
 		else if (position === 1) {
-			this.changePhoto("camera");
+			this.takePhoto("camera");
 		}
 	}
 
-	// navigateToGallery(sources) {
-	// 	console.log("toto", this);
-	// 	this.props.navigation.navigate('Gallery', sources);
-	// }
 
 	render() {
 		console.log('RenderPrivateWelcomePage')
-		//const content = Text[this.props.lang];
-		//console.log("render : privateWelcomePage", ProfileStore.getState()["guide"]);
 		var modules = {
 			Welcome 			: <MapViews	  screenProps={{"parent" : this, "lang" : this.props.lang}}/>,
 			Profile 			: <Profile 				lang={this.props.lang} parent={this}/>,

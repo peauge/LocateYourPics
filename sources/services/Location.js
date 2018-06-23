@@ -31,16 +31,16 @@ export default class LocationApi {
     });
   }
 
-  static getNearGuides(range) {
-    //console.log("getNearGuides service");
+  static getNearPics(range) {
+    //console.log("getNearPics service");
     PromiseApi.auth().get('/profiles/geo/' + 100000)
     .then((result) => {
 
       //console.log("Location service process : ", result);
 
         if (result.error) {
-          console.log("getNearGuides service error");
-          LocationActions.getNearGuidesError(result);
+          console.log("getNearPics service error");
+          LocationActions.getNearPicsError(result);
           return;
         }
         let ids = [];
@@ -60,7 +60,7 @@ export default class LocationApi {
             });
             // console.log("~~~~~~~~~~~ avatars ~~~~~~~~~~~~~~~")
             // console.log(result)
-            LocationActions.getNearGuidesSuccess(result);
+            LocationActions.getNearPicsSuccess(result);
           });
 
           //   CommentAvatarsActions.getSuccess.defer(
@@ -71,8 +71,8 @@ export default class LocationApi {
           // //.catch(err => CommentAvatarsActions.error(err));
     })
     .catch((err) => {
-      // console.log("getNearGuides catch ", err);
-        LocationActions.getNearGuidesError(err);
+      // console.log("getNearPics catch ", err);
+        LocationActions.getNearPicsError(err);
     });
   }
 

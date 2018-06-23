@@ -6,7 +6,6 @@ import ProfileStore       from 'stores/Profile.js';
 import ProfileActions     from 'actions/Profile.js';
 import ImagePicker        from 'react-native-image-crop-picker';
 import SignForm           from 'framework/signForm.js';
-import ButtonLoading      from "framework/ButtonLoading";
 import ButtonBack         from "framework/ButtonBack"
 import Styles             from 'components/styles.json';
 
@@ -37,11 +36,9 @@ export class EditProfile extends React.Component{
 
   componentWillUnmount() {
     ProfileStore.unlisten(this.onChange);
-    //ProfileActions.requestProfile();
   }
 
   onChange(store) {
-    //console.log("onChange", store.code);
     if (store.code == 200) {
       this.props.parent.setState({edit : false});
       return;
@@ -50,7 +47,6 @@ export class EditProfile extends React.Component{
   }
 
   handleSubmit() {
-    // this.forceUpdate();
     ProfileActions.editProfile(this.state.profile);
   }
 
@@ -63,11 +59,9 @@ export class EditProfile extends React.Component{
   }
 
   changePhoto(choice) {
-    //console.log("Choice : ", choice);
     if (choice == "cancel")
       return;
     if (choice == "camera") {
-      //console.log("Camera !!!!");
       ImagePicker.openCamera({
         width: 200,
         height: 300,
@@ -98,7 +92,6 @@ export class EditProfile extends React.Component{
 	render() {
     var profile = this.state.profile;
 
-    //console.log("render edit:", this.state.profile);
 		return (
           <Container>
           <ListItem style={styles.listItem}>

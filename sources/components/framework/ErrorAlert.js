@@ -2,8 +2,6 @@
  * Created by peauge on 20/02/2017.
  */
 'use strict'
-// TODO : make it works Alert fait maison pour le moment + multilangue
-// import SimpleAlert from 'react-native-simpledialog-android'
 import _          from 'underscore';
 import {Alert}    from "react-native";
 

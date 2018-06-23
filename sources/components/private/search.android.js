@@ -27,17 +27,12 @@ export class Search extends React.Component{
   }
 
 	_onSearchChange(search) {
-		//console.log("***", search);
 		if (search != "") {
 			SearchActions.requestSearch(search);
 		}
 	}
 
   render(){
-	//	console.log("Map rendered region : ", this.state.region.latitude, this.state.region.longitude);
-    //console.log("Markers ! ", this.state.markers);
-     console.log("456456", this.props.navigation);
-
     		return (
           <Container>
           <Item>

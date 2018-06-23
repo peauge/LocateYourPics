@@ -78,8 +78,6 @@ animatedStart(value) {
 	render(){
 		console.log("WelcomePageRender");
 
-		// TODO : style dans le json a metre
-    // TODO : Prendre en compte MODE HORIZONTAL avec dimension ex : ButtonLoading
 		return (
   			<View style={{
   				backgroundColor	: "#2196F3",

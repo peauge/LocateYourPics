@@ -5,11 +5,6 @@ import { DeviceEventEmitter, View } from 'react-native';
 
 export class PhotosGallery extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
-    //title: navigation.state.params.name + "'s Profile!",
-    // headerLeft:
-    //   <Button rounded light onPress={this.hideGallery} style={{marginTop : 30}}>
-    //     <Icon name='arrow-back' />
-    //  </Button>
   });
 
   constructor(props, context) {
@@ -25,10 +20,7 @@ export class PhotosGallery extends Component {
   }
 
   delete() {
-    //console.log('index ', this.state.current);
     this.props.data.deleteImage(this.state.current);
-
-    //setTimeout(() => {
       if (this.state.current != 0) {
         console.log("suppress +");
         this.setState({current : this.state.current - 1});
@@ -39,11 +31,9 @@ export class PhotosGallery extends Component {
           console.log("suppress last");
           this.props.hide();
       }
-    //}, 3000);
   }
 
   render() {
-
     let sources = []
     if (this.props.data.sources instanceof Array) {
       sources = this.props.data.sources;

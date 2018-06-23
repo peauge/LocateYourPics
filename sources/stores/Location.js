@@ -19,7 +19,7 @@ class LocationStore {
           latitudeDelta		: 0.0922,
           longitudeDelta	: 0.0421
         };
-        this.nearGuides = [];
+        this.nearPics = [];
         this.nearAds = [];
 
         this.bindActions(LocationActions);
@@ -49,26 +49,26 @@ class LocationStore {
         this.errorAlert.checkError(this.error);
     }
 
-    onGetNearGuides(range) {
-      //console.log("{{{{{{{{{{{{{{{{{ onGetNearGuides !!!!!!!!!!!!!!!!!!!!!!");
-      LocationApi.getNearGuides(range);
+    ongetNearPics(range) {
+      //console.log("{{{{{{{{{{{{{{{{{ ongetNearPics !!!!!!!!!!!!!!!!!!!!!!");
+      LocationApi.getNearPics(range);
       return false;
     }
 
-    onGetNearGuidesSuccess(res) {
-      console.log("onGetNearGuidesSuccess");
+    ongetNearPicsSuccess(res) {
+      console.log("ongetNearPicsSuccess");
       this.error = {
         msg: "",
         origin: "",
         code: ""
       };
-      this.nearGuides = res;
+      this.nearPics = res;
       //this.Pictures = res.Pictures;
-      //console.log('onGetNearGuides success', res);
+      //console.log('ongetNearPics success', res);
     }
 
-    onGetNearGuidesError(error) {
-      console.log("onGetNearGuidesError");
+    ongetNearPicsError(error) {
+      console.log("ongetNearPicsError");
       this.error.msg = error;
       this.error.origin = "Get Near Guides Error";
       this.errorAlert.checkError(this.error);
@@ -92,7 +92,7 @@ class LocationStore {
           PictureApi.findPictures(Picture._id);
         })
         //this.Pictures = res.Pictures;
-        //console.log('onGetNearGuides success', res);
+        //console.log('ongetNearPics success', res);
     }
 
     onGetNearAdsError(error) {

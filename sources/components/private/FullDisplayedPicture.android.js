@@ -10,7 +10,6 @@ import {EditComment}  from "./editcomment.js";
 import SignForm       from "framework/signForm.js"
 import { Container, Header, Content, List, ListItem, Left, Right, Text, Thumbnail, Body, Card, CardItem, Icon, Button } from 'native-base';
 import StarRating 			from 'react-native-star-rating';
-import ButtonPlus     from "framework/ButtonPlus.js"
 import PhotoGrid            from 'react-native-thumbnail-grid';
 import {PhotosGallery}	  	from "components/private/photosGallery.android.js";
 
@@ -56,7 +55,6 @@ export class PictureView extends React.Component{
  }
 
  componentDidMount() {
-   //console.log("FullDisplayPicture MOUNTED");
    CommentsStore.listen(this.onChange);
  }
 
@@ -68,41 +66,24 @@ export class PictureView extends React.Component{
   this.setState({commentList : CommentsStore.getState()["comments"].length ? this.state.ds.cloneWithRows(CommentsStore.getState()["comments"]) : null})
  }
 
-  /*openDatePicker() {
-    DatePickerAndroid.open({
-      date: this.state.when
-    }).then((res) => {
-      if (res.action !== DatePickerAndroid.dismissedAction) {
-        this.setState({when : new Date(res.year, res.month, res.day)});
-      }
-    });
-  }*/
-
   sendRequest() {
     this.setState({displayModal : false});
     Search.requestVisit(this.state._id, this.state.demand);
   }
-
-//   updateComment(comment) {
-//     // this.setState({editComment : true, update : true});
-// }
 
   handleFormChange(field){
       this.setState({demand : field});
     }
 
     showGallery(source) {
-      //console.log("source : ", source);
        this.setState({displayModalGallery : true, gallerySource : {sources : this.props.navigation.state.params.data.photos, initialPage : source.index}});
     }
 
 
   render(){
-    console.log("FullDisplayPicture RENDER", this.props.navigation.state.params.data);
     var data = this.props.navigation.state.params.data;
     var imgImage = null;
     if (data.photos) {
-      console.log('::::::::::::::::Photo LOOP:::::::::::::::');
       imgImage = <PhotoGrid source={data.photos} onPressImage={(source) => this.showGallery(source)} />
     }
     var rate = null;
@@ -117,11 +98,9 @@ export class PictureView extends React.Component{
     }
     if (this.state.editComment == true)
       return(<EditComment parent={this}/>);
-    console.log("Render full display Picture ::: ", data);
 
     var comments = null;
       if (this.state.commentList != null) {
-        // console.log("COMMENTSS RENDER ++++++++++++++", this.state.commentList._dataBlob.s1);
         comments =  <List dataArray={this.state.commentList._dataBlob.s1}
                   renderRow={(rowData) =>
                     <ListItem style={styles.listItem} avatar key={"commentsPicture" + rowData._id}  onPress={() => this.setState({editComment : true, update : true,

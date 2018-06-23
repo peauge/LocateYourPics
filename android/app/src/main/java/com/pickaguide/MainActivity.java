@@ -1,4 +1,4 @@
-package com.pickaguide;
+package com.locateyourpics;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,7 +10,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "pickaguide";
+        return "locateyourpics";
     }
 
     @Override

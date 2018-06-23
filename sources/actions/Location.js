@@ -1,5 +1,5 @@
 import alt from '../alt';
 
 export default alt.generateActions('sendLocation', 'sendLocationError', 'sendLocationSuccess',
-                                   'getNearGuides', 'getNearGuidesError', 'getNearGuidesSuccess', 'invalidateLocation',
+                                   'getNearPics', 'getNearPicsError', 'getNearPicsSuccess', 'invalidateLocation',
                                  'getNearAds', 'getNearAdsError', 'getNearAdsSuccess');

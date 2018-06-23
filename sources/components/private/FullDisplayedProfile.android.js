@@ -19,11 +19,6 @@ export class ProfileView extends React.Component{
 
   constructor(props, context) {
     super(props, context);
-
-    //console.log("Profile displayed : ", this.props.navigation.state.params.data);
-   /*if (typeof this.props.navigation.state.params.data._id === 'number')
-      ProfileActions.getProfile(this.props.navigation.state.params.data);
-    else*/
       PictureActions.getGuidePictures(this.props.navigation.state.params.data._id);
     const profile = this.props.navigation.state.params.data;
     const id      = this.props.navigation.state.params.data._id;
@@ -32,7 +27,7 @@ export class ProfileView extends React.Component{
         profile     : profile,
         id          : id,
         ds          : ds,
-        dataSource  : null,//ds.cloneWithRows(PictureStore.getState()["guidePictures"]),
+        dataSource  : null,
       }
 
     this.onChangePicture = this.onChangePicture.bind(this);
@@ -53,18 +48,15 @@ export class ProfileView extends React.Component{
   }
 
   onChangePicture(Pictures) {
-    //console.log("onChangePictures", Pictures["guidePictures"]);
-    if (Pictures["guidePictures"] == [] || Pictures["guidePictures"] == '') {
-      //console.log("datasource become null : ", Pictures["guidePictures"]);
+    if (Pictures === null) {
       this.setState({dataSource : null});
     }
     else
-      this.setState({dataSource : this.state.ds.cloneWithRows(Pictures["guidePictures"])})
+      this.setState({dataSource : this.state.ds.cloneWithRows(Pictures)})
   }
 
   onChangeProfile(profile) {
     if (this.state.dataSource == null && profile.otherProfile != null) {
-      //console.log("OnChangeProfile OtherProfile");
       PictureActions.getGuidePictures.defer(profile.otherProfile._id);
     }
     this.setState({"profile" : profile});
@@ -99,7 +91,6 @@ export class ProfileView extends React.Component{
     var p = null;
 
     if (!photo) {    }
-    //console.log("Render FullDisplayedProfile: INFO !!!", this.state.profile, "=================>",  this.props.navigation.state.params.data, "STOOOOOOOOOOOP");
     if (this.state.profile.isGuide)
       Pictures = <Text>{I18n.t('Picture')['guideNoAd']}</Text>;
 
@@ -116,7 +107,6 @@ export class ProfileView extends React.Component{
                     </ListItem>
                   }}>
         </List>;
-        // TDOD : if profile
 
     if (profile.rate) {
       rate = <StarRating

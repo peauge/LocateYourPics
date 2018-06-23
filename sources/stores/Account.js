@@ -10,7 +10,6 @@ import AccountApi         from 'services/Account.js';
 import LocationApi        from 'services/Location.js';
 import LocationStore      from 'stores/Location.js';
 import sendLocation       from 'backgroundJobs/geolocation.js';
-import notificationsJob   from 'backgroundJobs/visitRequestNotifications.js';
 import BackgroundTimer    from 'react-native-background-timer';
 import ErrorAlert         from 'framework/ErrorAlert.js'
 
@@ -19,10 +18,8 @@ import ErrorAlert         from 'framework/ErrorAlert.js'
 class AccountStore {
     constructor() {
         this.account = null;
-        this.isGuide = null;
         this.code = null;
         this.msg = null;
-        this.credentials = null;
         this.form = null;
         this.alert = null;
         this.origin = null;
@@ -54,19 +51,12 @@ class AccountStore {
     }
 
     onRequestSignupSuccess(result) {
-        // this.code = result.code;
-        // this.msg = result.message;
         AccountActions.requestSignin.defer({"email" : this.form.email,
                                          "password" : this.form.password});
     }
 
     onRequestSignupError(result) {
       console.log("onRequestSignupError !!!", result);
-        // this.origin = "Sign up Error";
-        // this.code = result.code;
-        // this.msg = result;
-        // this.account = null;
-        // this.alert = true;
     }
 
     onAlertDismiss() {
@@ -98,11 +88,13 @@ class AccountStore {
                 LocationActions.sendLocation(position.coords);
           }, (err) => {
             console.log('ERROR(' + err.code + '): ' + err.message);
-          }//, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }
+          }
         );
-        this.notifsId = BackgroundTimer.setInterval(notificationsJob, 10000);
 
-        LocationApi.getNearGuides(0.0922);
+        // TODO : implement frind request notif running in background
+        // this.notifsId = BackgroundTimer.setInterval(notif, 10000);
+
+        LocationApi.getNearPics(0.0922);
         LocationApi.nearAds(0.0922);
 
         AccountApi.getAccount(this.credentials.id);
@@ -124,7 +116,6 @@ class AccountStore {
     }
 
     onGetAccountSuccess(result) {
-        //console.log("onGetAccountSuccess : ", result);
         this.code = 0;
         this.msg = result.message;
         this.account = result;
@@ -132,7 +123,6 @@ class AccountStore {
     }
 
     onGetAccountError(result) {
-            // this.code = result.code;
         this.msg = result;
         this.origin = "Account error";
     }
@@ -145,15 +135,10 @@ class AccountStore {
 
     onRequestSignoutSuccess(result) {
       console.log("LOGOUT SUCCESS!")
-        //Keychain.resetGenericPassword();
-        if (this.isGuide == true) {
-          navigator.geolocation.clearWatch(this.watchId);
-        }
+
         BackgroundTimer.clearInterval(this.notifsId);
         this.code = null;
         this.account = null;
-        // alt.flush() clean all the stores
-        //console.log(alt.flush());
     }
 
     onRequestSignoutError(result) {
@@ -259,9 +244,6 @@ class AccountStore {
     }
 
     onRequestDeleteSuccess(result) {
-        if (this.isGuide == true) {
-          navigator.geolocation.clearWatch(this.watchId);
-        }
         BackgroundTimer.clearInterval(this.notifsId);
         // alt.flush() clean all the stores
         console.log(alt.flush());

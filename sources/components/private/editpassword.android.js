@@ -4,7 +4,6 @@ import React              from "react";
 import IconF 			        from "react-native-vector-icons/FontAwesome";
 import SignForm           from 'framework/signForm.js';
 import ButtonSubmit       from "framework/ButtonSubmit";
-import ButtonLoading      from "framework/ButtonLoading";
 import ButtonBack         from "framework/ButtonBack"
 import Styles             from 'components/styles.json';
 import AccountActions     from 'actions/Account.js';
@@ -39,12 +38,10 @@ export class EditPassword extends React.Component{
   }
 
   onChange(store) {
-    // console.log("onChange", store.code);
      if (store.code == 200) {
        this.props.parent.setState({password : false});
        return;
      }
-    // this.setState({code : store.code, msg : store.msg});
   }
 
   handleSubmit() {
@@ -60,8 +57,6 @@ export class EditPassword extends React.Component{
   }
 
 	render() {
-
-    console.log("render EDIT PASSWORD:", this.state);
 		return (
       <Container style={styles.containerPassword}>
       <Container style={{flex : 3}}>

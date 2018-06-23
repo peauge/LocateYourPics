@@ -23,11 +23,8 @@ export class EditComment extends React.Component{
 
     this.state = {
       post : null,
-      // comment : this.props.parent.state.selectedComment != null ? this.props.parent.state.selectedComment : null
     }
-    // if (this.props.parent.state.selectedComment != null) {
-    //   this.state.comment = this.props.parent.state.selectedComment;
-    // }
+
     this.onChange = this.onChange.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
@@ -44,9 +41,7 @@ export class EditComment extends React.Component{
   }
 
   onChange(store) {
-    // console.log("onChange", store.code);
       this.props.parent.setState({editComment : false, update : false, selectedComment : null, idComment : -1});
-    // this.setState({code : store.code, msg : store.msg});
   }
 
   handleCreate() {
@@ -63,7 +58,6 @@ export class EditComment extends React.Component{
       id : this.props.parent.state.idComment,
       PictureId : this.props.parent.state._id
     }
-    //console.log("Comment postOBJ before delete", postObj);
     CommentsActions.remove(postObj);
   }
 
@@ -76,12 +70,10 @@ export class EditComment extends React.Component{
       id : this.props.parent.state.idComment,
       PictureId : this.props.parent.state._id
     }
-    //console.log("Comment postOBJ before delete", postObj);
     CommentsActions.toggleLike(postObj);
   }
 
 	render() {
-    //console.log("render EDIT COMMENT:", this.props.parent.state.likes);
     var display = null;
     var date = new Date(this.props.parent.state.date).toString().split(" ").slice(0, -2).join(" ");
     if (this.props.parent.state.update)

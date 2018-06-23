@@ -89,7 +89,7 @@ android {
     buildToolsVersion "24.0.0"
 
     defaultConfig {
-        applicationId "com.pickaguide"
+        applicationId "com.locateyourpics"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

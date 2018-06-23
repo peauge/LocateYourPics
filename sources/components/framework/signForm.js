@@ -19,10 +19,7 @@ const EDIT_PROFIL = 3;
 const PARAMETER = 4;
 const PASSWORD = 5;
 const MAIL = 6;
-const Picture = 7;
-const VISIT_DEMAND = 8;
-const PAYMENT = 9;
-const NEWCARD = 10;
+
 
 // RegEx for fields inputs
 
@@ -44,22 +41,11 @@ const t = require('tcomb-form-native')
 t.form.Form.stylesheet = styles;
 let Form = t.form.Form
 
-/**
- * ### Translations
- */
- // TODO : FR/EN...
 var I18n = require('react-native-i18n')
 import Translations from '../translation.json'
 I18n.translations = Translations
 
 var SignForm = CreateClass({
-  /**
-   * ## SignForm class
-   *
-   * * form: the properties to set into the UI form
-   * * value: the values to set in the input fields
-   * * onChange: function to call when user enters text
-   */
   propTypes: {
     formType: PropTypes.number,
     form: PropTypes.object,
@@ -67,12 +53,6 @@ var SignForm = CreateClass({
     onChange: PropTypes.func
   },
 
-  /**
-   * ## render
-   *
-   * setup all the fields using the props and default messages
-   *
-   */
   render () {
     let formType = this.props.formType
 
@@ -378,121 +358,8 @@ var SignForm = CreateClass({
 
 
         break
-
-      case (Picture):
-        signForm = t.struct({
-          title: t.String,
-          description: t.String,
-          city: t.String,
-          country: t.String
-      })
-      options.fields['title'] = cloneDeep(name)
-      options.fields['title'].template = templateInputBase;
-      options.fields['title'].placeholder = I18n.t('SignForm')['title']
-
-      Object.assign(options.fields['title'].config,
-        {container: styles.containerInputsNoFlex, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-image', iconColor: 'black'})
-        options.fields['description'] = text
-        options.fields['description'].template = templateInputBase;
-        options.fields['description'].placeholder = I18n.t('SignForm')['description']
-
-        Object.assign(options.fields['description'].config,
-          {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, iconColor: 'black'})
-          options.fields['city'] = cloneDeep(name)
-      options.fields['city'].template = templateInputBase;
-      options.fields['city'].placeholder = I18n.t('SignForm')['city']
-
-      Object.assign(options.fields['city'].config,
-        {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-flag', iconColor: 'black'})
-      options.fields['country'] = cloneDeep(name)
-      options.fields['country'].template = templateInputBase;
-      options.fields['country'].placeholder = I18n.t('SignForm')['country']
-
-      Object.assign(options.fields['country'].config,
-        {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'globe', iconColor: 'black'})
-
-      break
-
-      case (VISIT_DEMAND):
-        signForm = t.struct({
-          numberVisitors: t.Number,
-          special: t.String,
-          when: t.Date
-      })
-      options.fields['numberVisitors'] = number
-      options.fields['numberVisitors'].template = templateInputBase
-      options.fields['numberVisitors'].placeholder = I18n.t('SignForm')['numberVisitors']
-
-      Object.assign(options.fields['numberVisitors'].config,
-      {container: styles.containerInputsNoFlex, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-contacts', iconColor: 'black'})
-
-      options.fields['special'] = text
-      options.fields['special'].template = templateInputBase
-      options.fields['special'].placeholder = I18n.t('SignForm')['special']
-
-      Object.assign(options.fields['special'].config,
-      {container: styles.containerInputsNoFlex, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-text', iconColor: 'black'})
-
-      options.fields['when'] = date
-      Object.assign(options.fields['when'].config,
-        {container: styles.containerInputsNoFlex, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'calendar'})
-
-      break
-
-      case (PAYMENT):
-        signForm = t.struct({
-          amount: t.Number,
-      })
-      options.fields['amount'] = number
-      options.fields['amount'].template = templateInputBase
-      options.fields['amount'].placeholder = I18n.t('SignForm')['amount']
-
-      Object.assign(options.fields['amount'].config,
-      {container: styles.containerInputsNoFlex, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-arrow-dropright-circle', iconColor: 'black'})
-
-      break
-
-      case (NEWCARD):
-        signForm = t.struct({
-          number: t.Number,
-          expirationMonth: t.Number,
-          expirationYear: t.Number,
-          cvc: t.Number,
-      })
-      number.template = templateNoIcon
-      options.fields['number'] = cloneDeep(number)
-      options.fields['number'].template = templateInputBase
-      Object.assign(options.fields['number'].config,
-      {container: styles.containerInputsNoFlex, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-arrow-dropright-circle', iconColor: 'black'})
-      options.fields['expirationMonth'] = cloneDeep(number)
-      options.fields['expirationMonth'].template = templateInputBase
-      options.fields['expirationMonth'].error = I18n.t('FormError')['errorMonth']
-      options.fields['expirationMonth'].placeholder = I18n.t('SignForm')['expirationMonth']
-
-      Object.assign(options.fields['expirationMonth'].config,
-      {container: styles.containerInputsNoFlex, reg: max2, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-arrow-dropright-circle', iconColor: 'black'})
-      options.fields['expirationYear'] = cloneDeep(number)
-      options.fields['expirationYear'].template = templateInputBase
-      options.fields['expirationYear'].error = I18n.t('FormError')['errorYear']
-      options.fields['expirationYear'].placeholder = I18n.t('SignForm')['expirationYear']
-
-      Object.assign(options.fields['expirationYear'].config,
-      {container: styles.containerInputsNoFlex, reg: max4, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-arrow-dropright-circle', iconColor: 'black'})
-      options.fields['cvc'] = cloneDeep(number)
-      options.fields['cvc'].template = templateInputBase
-      options.fields['cvc'].error = I18n.t('FormError')['errorCvc']
-      options.fields['cvc'].placeholder = I18n.t('SignForm')['cvc']
-
-      Object.assign(options.fields['cvc'].config,
-      {container: styles.containerInputsNoFlex, reg: max3, styleText: styles.inputsBlue, iconStyle : styles.iconStyleBase, icon: 'md-arrow-dropright-circle', iconColor: 'black'})
-
-
-
-      break
   } // switch
 
-// TODO : AFFINER TEXTINPUT ex : https://github.com/gcanti/tcomb-form-native/blob/master/lib/templates/bootstrap/textbox.js
-// TODO : RADIO homme femme
 function templateRadio(locals) {
   var radio_props = [
     {label: locals.config.pone, value: 0 },
@@ -510,53 +377,6 @@ function templateRadio(locals) {
 
 }
 
-function templateRadioBase(locals) {
-  var radio_props = [
-    {label: locals.config.pone, value: 0 },
-    {label: locals.config.ptwo, value: 1 }
-  ];
-  return (
-    <Content>
-           <Text>Daily Stand Up</Text>
-             <Radio selected={false} />
-          <Right>
-           <Text>Discussion with Client</Text>
-             <Radio selected={true} />
-          </Right>
-       </Content>
-  );
-
-}
-
-function templateInputsUnderline(locals) {
-
-    return (
-        <View >
-          <FormLabel>{locals.config.label}</FormLabel>
-          <FormInput onChangeText={(value) => locals.onChange(value)}/>
-        </View>
-    );
-  }
-
-  function openDatePicker(value) {
-    DatePickerAndroid.open({
-      date: value
-    }).then((res) => {
-      if (res.action !== DatePickerAndroid.dismissedAction) {
-        value = res;
-      }
-    });
-  }
-
-  function templateDatePicker(locals) {
-
-    return (
-    <View style={locals.config.container ? locals.config.container : styles.containerInputs}>
-        <DatePickerAndroid value={locals.value} onChange={(value) => locals.onChange(value.toString())}/>
-    </View>
-    );
-  }
-
   function templateDatePickerBase(locals) {
 
     return (
@@ -568,26 +388,6 @@ function templateInputsUnderline(locals) {
     </Content>
     );
   }
-
-function templateDatePickerIcon(locals) {
-
-  return (
-    <TouchableHighlight  style={/*onPress={() => openDatePicker(locals.value)}p */locals.config.container ? locals.config.container : styles.containerInputs}>
-      <view>
-        <Icon
-          style={locals.config.styleIcon ? locals.config.styleIcon : styles.iconLine}
-          name            = {locals.config.icon}
-          color 		      = {locals.config.iconColor}
-          size            = {locals.config.iconSize}
-        >
-      </Icon>
-        <Text style={locals.config.styleText ? locals.config.styleText : styles.inputsField}>
-          {/*locals.value.day + " " + locals.value.month + " " + locals.value.year*/}
-        </Text>
-      </view>
-    </TouchableHighlight>
-  );
-}
 
 function templateInputBase(locals) {
   var errorText = null;
@@ -775,10 +575,6 @@ function templateInputBaseRounded(locals) {
     );
   }
 
-    /**
-     * ### Return
-     * returns the FormT component with the correct structures
-     */
     return (
       <Form ref='FormError'
         type={signForm}
