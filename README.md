@@ -1,6 +1,6 @@
 # LocateYourPics Présentation
 
-L'application premet de prendre des photos sur des spots et de stocker celle-ci à l'emplacement ou elle a été prise, ce qui permet de la retrouver facilement sur la carte.<br/>
+L'application premet de prendre des photos sur des spots et de stocker celle-ci avec l'emplacement ou elle a été prise, ce qui permet de la retrouver facilement sur la carte.<br/>
 On retrouvera notament :
 - un gestionnaire des paramètres liés au compte.
 - un gestionnaire des images prises.
