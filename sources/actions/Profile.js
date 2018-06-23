@@ -6,7 +6,4 @@ export default alt.generateActions('getMyProfile', 'getMyProfileError', 'getMyPr
 									 							 	 /*'editPhoto',*/ 'editPhotoError', 'editPhotoSuccess',
 																	 'getAvatar', 'getAvatarError', 'getAvatarSuccess',
 								   						 		 'invalidateProfile',
-																	 'becomeGuide', 'becomeGuideSuccess', 'becomeGuideError',
-																	 'retire', 'retireSuccess', 'retireError',
-																	 'isGuide', 'isGuideSuccess', 'isGuideError',
 																	 'alertGuideDismiss', 'invalidateProfile', 'updateAway');

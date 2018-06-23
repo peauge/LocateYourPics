@@ -97,7 +97,7 @@ export class ProfileView extends React.Component{
                   renderRow={(rowData) =>
                     {
                     return <ListItem style={styles.listItem} key={"searchedPicture" + rowData._id}  onPress={() => this.props.navigation.navigate('Picture', {data : rowData})}>
-                          <Thumbnail square large source={rowData.photos ? rowData.photos[0] : { uri : "https://www.pickaguide.fr/assets/images/deleted.png"} } />
+                          <Thumbnail square large source={rowData.photos ? rowData.photos[0] : { uri : "https://www.iconsdb.com/icons/preview/black/delete-xxl.png"} } />
                           <Body>
                               <Text>{rowData.title}</Text>
                               <Text note>{rowData.description}</Text>

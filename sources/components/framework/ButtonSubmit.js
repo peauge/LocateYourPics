@@ -12,8 +12,6 @@ import {
 	ActivityIndicator,
 } from 'react-native';
 
-var spinner =  require('images/gif/loaderPickaguide.gif');
-
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 const MARGIN = 40;

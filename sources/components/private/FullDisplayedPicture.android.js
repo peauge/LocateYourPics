@@ -111,7 +111,7 @@ export class PictureView extends React.Component{
                                                     idComment : rowData._id,
                                                     likes : rowData.likes.length})}>
                                                     <Left>
-                                          <Thumbnail source={{ uri: "https://www.pickaguide.fr/assets/images/avatar.png" }} />
+                                          <Thumbnail source={{ uri: "https://i1.wp.com/www.ccmcinc.com/wp-content/uploads/2018/01/Male-Avatar.png?w=300&ssl=1" }} />
                                           </Left>
                                           <Body>
                                             <Text>{rowData.post}</Text>
@@ -160,7 +160,7 @@ export class PictureView extends React.Component{
           <Card style={{flex: 0}}>
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: "https://www.pickaguide.fr/assets/images/avatar.png"}} />
+                <Thumbnail source={{uri: "https://i1.wp.com/www.ccmcinc.com/wp-content/uploads/2018/01/Male-Avatar.png?w=300&ssl=1"}} />
                 <Body>
                   <Text>{data.title}</Text>
                   <Text note>{data.owner}</Text>

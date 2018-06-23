@@ -71,7 +71,7 @@ export class ProfileResults extends Component {
       result = <List dataArray={this.state.dataSource._dataBlob.s1}
                 renderRow={(rowData) =>
                   <ListItem style={styles.listItem} key={"searchedProfile" + rowData._id}  onPress={() => this.props.navigation.navigate('Profile', {data : rowData})}>
-                        <Thumbnail square large source={{ uri: this.validURL(rowData.photoUrl) ? rowData.photoUrl : "https://www.pickaguide.fr/assets/images/avatar.png" }} />
+                        <Thumbnail square large source={{ uri: this.validURL(rowData.photoUrl) ? rowData.photoUrl : "https://i1.wp.com/www.ccmcinc.com/wp-content/uploads/2018/01/Male-Avatar.png?w=300&ssl=1" }} />
                         <Body>
                             <Text>{rowData.displayName}</Text>
                             <Text note>{rowData.description}</Text>

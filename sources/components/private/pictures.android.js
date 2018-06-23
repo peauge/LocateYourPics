@@ -156,7 +156,7 @@ export class Pictures extends Component {
                                                 },
                                                 active : rowData.active,
                                                 _id : rowData._id})}>
-                                                  <Thumbnail square large source={rowData.photos ? rowData.photos[0] : {uri : "https://www.pickaguide.fr/assets/images/deleted.png"}}/>
+                                                  <Thumbnail square large source={rowData.photos ? rowData.photos[0] : {uri : "https://www.iconsdb.com/icons/preview/black/delete-xxl.png"}}/>
                                                             <Body>
                                                               <Text>{rowData.title}</Text>
                                                               <Text note>{rowData.description}</Text>

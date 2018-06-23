@@ -125,39 +125,6 @@ class ProfileStore {
         this.errorAlert.checkError(this);
     }
 
-    onBecomeGuide(profile) {
-        ProfileApi.becomeGuide(profile);
-    }
-
-    onBecomeGuideError(result) {
-      // this.code = result.code;
-      this.msg = result;
-      this.origin = "Become guide error"
-      this.errorAlert.checkError(this);
-    }
-
-    onBecomeGuideSuccess(result) {
-      this.code = 200;
-      this.msg = result.message;
-      this.guide = true;
-    }
-
-    onRetire() {
-      ProfileApi.retire();
-    }
-
-    onRetireSuccess(result) {
-      this.code = 200;
-      this.msg = result.message;
-      this.guide = false;
-    }
-
-    onRetireError() {
-      this.msg = result;
-      this.origin = "Retire error"
-      this.errorAlert.checkError(this);
-    }
-
     onUpdateAway(bool) {
       this.away = bool;
     }

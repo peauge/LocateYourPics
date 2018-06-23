@@ -88,7 +88,7 @@ animatedStart(value) {
 
       				<StatusBar backgroundColor="#1565C0" barStyle="light-content"/>
       				<Animated.Image
-      					source={require('images/resizelogo.png')}
+      					source={require('images/ic_launcher.png')}
       					style={{
       						flex		    : 1,
       						transform	  : [{scale: this.state.bounceValue},],
