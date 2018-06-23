@@ -23,9 +23,9 @@ export default class PictureApi {
     });
   }
 
-  static getGuidePictures(id) {
+  static getFriendsPictures(id) {
     //console.log("get guides Picture service");
-    PromiseApi.auth().get('/public/users/' + id + '/proposals')
+    PromiseApi.get('/public/users/' + id + '/proposals')
     .then((result) => {
       //console.log("requestVisit service process");
 

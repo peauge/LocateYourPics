@@ -8,6 +8,7 @@ export default class ProfileApi {
     PromiseApi.get('/public/search/filter/' + param)
     .then((result) => {
       //console.log("Search service process ", result);
+      var regex = new RegExp('\\^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$');
 
         if (result.error) {
           //console.log("Search service error");
