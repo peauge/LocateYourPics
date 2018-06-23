@@ -91,8 +91,6 @@ export class ProfileView extends React.Component{
     var p = null;
 
     if (!photo) {    }
-    if (this.state.profile.isGuide)
-      Pictures = <Text>{I18n.t('Picture')['guideNoAd']}</Text>;
 
     if (this.state.dataSource !=   null)
       Pictures =  <List dataArray={this.state.dataSource._dataBlob.s1}

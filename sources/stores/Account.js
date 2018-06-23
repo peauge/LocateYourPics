@@ -99,7 +99,6 @@ class AccountStore {
 
         AccountApi.getAccount(this.credentials.id);
         this.whatChange = null;
-        this.isGuide = true;
         this.watchId = sendLocation();
         PictureActions.getMyPictures.defer();
     }

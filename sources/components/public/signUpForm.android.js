@@ -62,7 +62,7 @@ export class SignUpForm extends React.Component{
 
   onChange(user) {
   //  console.log("onChange", user.code);
-    if (user.code === 0 && user.account != null && user.isGuide != null) {
+    if (user.code === 0 && user.account != null) {
       //console.log("!!! Connection !!!")
       //AccountActions.getAccount.defer(user.id);
       //this.props.parent.setState({connected : true});

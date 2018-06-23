@@ -4,7 +4,6 @@ export default alt.generateActions('requestSignup', 'requestSignupError', 'reque
                                    'requestSignin', 'requestSigninError', 'requestSigninSuccess',
                                    'getAccount', 'getAccountSuccess', 'getAccountError',
                                    'alertDismiss',
-                                   'isGuideSuccess', 'isGuideError',
                                    'requestSignout', 'requestSignoutError', 'requestSignoutSuccess',
                                    'requestDelete', 'requestDeleteError', 'requestDeleteSuccess',
                                    'updateNotification',

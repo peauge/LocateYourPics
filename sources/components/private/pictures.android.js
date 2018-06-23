@@ -41,7 +41,6 @@ export class Pictures extends Component {
         _id : -1,
       }
     this.create = this.create.bind(this);
-    this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
     this.toggle = this.toggle.bind(this);
     this.onChange = this.onChange.bind(this);

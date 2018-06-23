@@ -56,7 +56,7 @@ export class SignInForm extends React.Component{
 
   onChange(user) {
     //console.log("onChange", user);
-    if (user.code === 0 && user.account != null && user.isGuide != null) {
+    if (user.code === 0 && user.account != null) {
       //AccountActions.getAccount.defer();
       //this.props.parent.setState({connected : true});
       //console.log("!! Connected !!");

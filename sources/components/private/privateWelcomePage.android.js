@@ -160,9 +160,7 @@ export class PrivateWelcomePage extends React.Component{
 			Pictures			: "md-image"
 		}
 
-  if (AccountStore.getState().isGuide == true || ProfileStore.getState().guide == true) {
 		var advIcon = this.state.activeModule == "Pictures" ? <Button active vertical><Icon active name="md-image"/><Text>{I18n.t('Button')['Picture']}</Text></Button> : <Button onPress={() => this.toggleModule("Pictures")} vertical><Icon name="md-image"/><Text>{I18n.t('Button')['Picture']}</Text></Button>
-	}
 		var mapIcon = this.state.activeModule == "Welcome" ? <Button active vertical><Icon active name="map"/><Text>{I18n.t('Button')['map']}</Text></Button> : <Button onPress={() => this.toggleModule("Welcome")} vertical><Icon name="map"/><Text>{I18n.t('Button')['map']}</Text></Button>
 		var settingIcon = this.state.activeModule == "Settings" ? <Button active vertical><Icon active name="cog"/><Text>{I18n.t('Button')['setting']}</Text></Button> : <Button onPress={() => this.toggleModule("Settings")} vertical><Icon name="cog"/><Text>{I18n.t('Button')['setting']}</Text></Button>
 		var expanded = false;

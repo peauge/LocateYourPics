@@ -30,7 +30,6 @@ class ProfileStore {
     onGetMyProfile(id) {
         ProfileApi.getMyProfile(id);
         ProfileApi.getAvatar(id);
-        ProfileApi.isGuide(id);
         return false;
     }
 
@@ -64,7 +63,6 @@ class ProfileStore {
 
     onGetProfile(id) {
         ProfileApi.getProfile(id);
-        ProfileApi.isGuide(id);
         return false;
     }
 
@@ -79,19 +77,6 @@ class ProfileStore {
         this.msg = result;
         this.origin = "Profile error"
         this.errorAlert.checkError(this);
-    }
-
-    onIsGuideSuccess(result) {
-        this.guide = result.isGuide;
-    }
-
-    onIsGuideError(result) {
-
-
-      // this.code = result.code;
-      this.msg = result;
-      this.origin = "Profile error";
-      this.errorAlert.checkError(this);
     }
 
     onEditProfile(form) {
