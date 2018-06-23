@@ -77,11 +77,7 @@ export default class AccountApi {
 */
 
     static delete(form) {
-<<<<<<< HEAD
-      PromiseApi.auth().delete('/api/users/:', form.User.id)
-=======
       PromiseApi.delete('api/users/', form.User.id)
->>>>>>> services
       // PromiseApi.auth().put('/users/remove', form.User)
         .then((result) => {
             if (result.error) {
