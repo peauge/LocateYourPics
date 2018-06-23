@@ -4,7 +4,7 @@ import ProfileActions from 'actions/Profile.js';
 export default class ProfileApi {
 
   static getMyProfile(id) {
-      PromiseApi.auth().get('/profiles/' + id)
+      PromiseApi.get('/api/users/' + id)
       .then((result) => {
           if (result.error) {
               ProfileActions.getMyProfileError(result);
@@ -19,7 +19,7 @@ export default class ProfileApi {
   }
 
   static getProfile(id) {
-        PromiseApi.auth().get('/public/profiles/' + id)
+        PromiseApi.auth().get('/api/users/' + id)
         .then((result) => {
             if (result.error) {
                 ProfileActions.getProfileError(result);
@@ -74,7 +74,7 @@ export default class ProfileApi {
 
     static getAvatar(id) {
       //console.log("getAvatar service");
-      PromiseApi.download('/public/profiles/' + id + '/avatar')
+      PromiseApi.download('/api/users/' + id + '/avatar')
       .then((result) => {
         if (result.error) {
           console.log("getAvatar error !!", err);
