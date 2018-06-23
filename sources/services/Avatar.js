@@ -20,7 +20,7 @@ const retrieveAvatar = (id, forceCache) => {
     if (avatar && forceCache !== true) {
       resolve(avatar);
     } else {
-      PromiseApi.download(`/public/profiles/${id}/avatar`)
+      PromiseApi.download(`/api/users/${id}/avatar`)
         .then((res) => {
           console.log("Avatar");
           const block = {};

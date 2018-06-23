@@ -4,44 +4,34 @@ import AccountActions    from 'actions/Account.js';
 export default class AccountApi {
     static signup(form) {
       PromiseApi.post('/api/users', form)
-        // PromiseApi.post('/public/sign-up', form)
         .then((result) => {
-            console.log("Status !!! : ", result);
-            // if (result.code != 0) {
-            //     AccountActions.requestSignupError(result);
-            //     return;
-            // }
+            console.log("Status SignUp: " + result);
             AccountActions.requestSignupSuccess(result);
         })
         .catch((err) => {
-            //console.log("Error SignUp" + err);
-            // if (String(err.response.text) === '{"code":1,"message":"Forbidden"}')
-            //     SignupActions.requestSignupSuccess({code: 0, message : "Compte crée."});
-            // else
-                AccountActions.requestSignupError(err);
+          console.log("Error SignUp: " + err);
+          AccountActions.requestSignupError(err);
         });
     }
 
     static signin(form) {
-      // PromiseApi.post('/public/sign-in', form)
-        PromiseApi.post('/api/users/login', form)
-        .then((result) => {
-            if (result.code && result.code != 0) {
-                AccountActions.requestSigninError(result);
-                return;
-            }
-            AccountActions.requestSigninSuccess(result);
-        })
-        .catch((err) => {
-            AccountActions.requestSigninError(err);
-        });
+      PromiseApi.post('/api/users/login', form)
+      .then((result) => {
+        if (result.status && result.status == "success") {
+          AccountActions.requestSigninError(result);
+          return;
+        }
+        AccountActions.requestSigninSuccess(result);
+      })
+      .catch((err) => {
+        AccountActions.requestSigninError(err);
+      });
     }
 
     static getAccount(id) {
-      // PromiseApi.auth().get('/accounts/' + id)
-        PromiseApi.auth().get('/users/:' + id)
+        PromiseApi.get('/api/users/' + id)
         .then((result) => {
-            if (result.code && result.code != 0) {
+            if (result.code && result.code > 300) {
                 AccountActions.getAccountError(result);
                 return;
             }
@@ -52,20 +42,9 @@ export default class AccountApi {
         });
     }
 
-    static signout(form) {
-        PromiseApi.auth().put('/accounts/logout', form)
-        .then((result) => {
-            if (result.error) {
-                AccountActions.requestSignoutError(result);
-                return;
-            }
-            AccountActions.requestSignoutSuccess(result);
-        })
-        .catch((err) => {
-            AccountActions.requestSignoutError(err);
-        });
-    }
-
+/*
+** TODO server side
+**
     static updatePassword(form) {
         PromiseApi.auth().put('/accounts/password', form)
           .then((res) => {
@@ -95,9 +74,10 @@ export default class AccountApi {
           });
           return ;
       }
+*/
 
     static delete(form) {
-      PromiseApi.auth().delete('api/users/:', form.User.id)
+      PromiseApi.delete('api/users/', form.User.id)
       // PromiseApi.auth().put('/users/remove', form.User)
         .then((result) => {
             if (result.error) {

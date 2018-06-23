@@ -33,19 +33,8 @@ export default class ProfileApi {
         });
     }
 
-    static isGuide(id) {
-      //console.log("IsGuide Profile");
-        PromiseApi.get('/public/users/' + id + '/isGuide')
-        .then((result) => {
-            ProfileActions.isGuideSuccess(result);
-        })
-        .catch((err) => {
-            ProfileActions.isGuideError(err);
-        });
-    }
-
     static editProfile(form) {
-        PromiseApi.auth().put('/profiles', form)
+        PromiseApi.put('/profiles', form)
         .then((result) => {
             if (result.error) {
                 ProfileActions.editProfileError(result);
@@ -60,7 +49,6 @@ export default class ProfileApi {
     }
 
     static editPhoto(photo) {
-      //console.log("photo : ", photo);
       const fileUpload = new FormData();
       var name = photo.path.split("/");
       fileUpload.append('avatar', {uri: photo.path, name : name[name.length - 1], type : photo.mime});
@@ -70,7 +58,7 @@ export default class ProfileApi {
       //var file = new File([photo.data], name[name.length - 1], {type:"jpeg"});
       //console.log("File : ", file);
       //fileUpload.append("avatar", file, file.name, 'avatar');
-      PromiseApi.auth().upload('/profiles/avatar', fileUpload)
+      PromiseApi.upload(`/users/${id}/avatar`, fileUpload)
       .then((result) => {
         if (result.error) {
           ProfileActions.editPhotoError(result);
@@ -100,39 +88,5 @@ export default class ProfileApi {
         ProfileActions.getAvatarError(err);
       });
     }
-
-    static becomeGuide(updateProfile) {
-      //console.log('**BecomeGuide** PHASE1', updateProfile);
-
-        PromiseApi.auth().post('/users/becomeGuide', updateProfile)
-        .then((result) => {
-          console.log('**BecomeGuide** PHASE2', result);
-          if (result.error) {
-            ProfileActions.becomeGuideError(result);
-            return;
-          }
-          ProfileActions.becomeGuideSuccess(result);
-        })
-        .catch((err) => {
-          console.log('**BecomeGuide** PHASE ERR', err);
-          ProfileActions.becomeGuideError(err);
-        });
-    }
-
-    static retire() {
-      console.log('**RETIRE** PHASE1');
-
-    PromiseApi.auth().post('/users/retire')
-    .then((res) => {
-      if (res.error) {
-        ProfileActions.retireError(res.error);
-      } else {
-        ProfileActions.retireSuccess(res.isGuide);
-      }
-    })
-    .catch((err) => {
-      ProfileActions.retireError(err);
-    });
-}
-
+  }
 }
