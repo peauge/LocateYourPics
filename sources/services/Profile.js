@@ -83,4 +83,3 @@ export default class ProfileApi {
       ProfileActions.getAvatarError(err);
     });
   }
-}
