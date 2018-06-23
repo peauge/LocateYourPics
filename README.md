@@ -77,7 +77,7 @@ Installez ensuite le client React-native (nécessite d’avoir les droits admini
 Lancez l’émulateur android d’Android studio.<br/>
 
 Puis dans un autre terminal la commande :<br/>
-`adb logcat *:S ReactNative:V ReactNativeJS:V   //*`
+`adb logcat *:S ReactNative:V ReactNativeJS:V`
 
 qui vous permettra de voir les logs de la console de l’émulateur.
 
@@ -123,7 +123,8 @@ Lancez ensuite le serveur de bundle de react native avec la commande :<br/>
 `react-native start`
 
 Puis dans un autre terminal la commande :<br/>
-`adb logcat *:S ReactNative:V ReactNativeJS:V   //*`
+`adb logcat *:S ReactNative:V ReactNativeJS:V  `
+
 qui vous permettra de voir les logs de la console de l’émulateur.
 
 Enfin dans un troisième terminal, compilez l'application et lancez là sur le smartphone :<br/>
