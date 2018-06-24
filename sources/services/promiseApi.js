@@ -61,7 +61,6 @@ export default class PromiseApi {
 
   static post(url, body) {
     return new Promise((resolve, reject) => {
-      console.log("REQUETE ICI:", `${config.apiUrl}${url}`, JSON.stringify(body))
       const requestBuilder = request
         .post(`${config.apiUrl}${url}`, JSON.stringify(body))
         .set('Content-Type', 'application/json')
@@ -85,27 +84,6 @@ export default class PromiseApi {
 
   static uploads(url, body, files, method = 'POST') {
     return new Promise((resolve, reject) => {
-      console.log('files: ', files);
-      console.log('body: ', body);
-      // const filesUpload = [];//new FormData();
-      // files.map((file) => {
-      //   console.log("file : ", file);
-      //   filesUpload.push({ name : file.name, filename : file.name, type : file.type, data : file.uri});
-      // });
-      // filesUpload.push({name : 'proposalForm', data : JSON.stringify(body)});
-      // console.log("files : ", filesUpload);
-      // RNFetchBlob.fetch('POST', `${config.apiUrl}${url}`, {
-      //   'Authorization' : `Bearer ${this.token}`,
-      //   'Content-Type' : 'multipart/form-data',
-      // }, filesUpload)
-      // .then((res) => {
-      //   console.log('*****Upload**** ', res, ' **********');
-      //   resolve(res.base64());
-      // })
-      // .catch((errorMessage, statusCode) => {
-      //   console.log("Upload error : ", errorMessage);
-      //   reject('Upload failed');
-      // });
       const req = new XMLHttpRequest();
       const formData = new FormData();
 
@@ -147,30 +125,6 @@ export default class PromiseApi {
         reject('Download failed');
       });
     });
-      /*const req = new XMLHttpRequest();
-
-      const callback = () => {
-        if (req.status === 200) {
-          const blob = new Blob([req.response], { type: 'image/jpeg' });
-          const reader = new FileReader();
-          reader.onload = (dataLoad) => {
-            resolve(dataLoad.target.result);
-          };
-
-          reader.readAsDataURL(blob);
-        } else {
-          reject('Download failed');
-        }
-      };
-
-      req.addEventListener('load', callback);
-      req.open('GET', `${config.apiUrl}${url}`, true);
-
-      if (this.token) { req.setRequestHeader('Authorization', `Bearer ${this.token}`); }
-
-      req.responseType = 'arraybuffer';
-      req.send(null);
-    });*/
   }
 
   static put(url, body) {

@@ -27,13 +27,9 @@ class LocationStore {
     }
 
     onSendLocation(coords) {
-        //console.log('onSendLocation : ', coords);
-        // LocationApi.sendLocation(coords);
-        console.log("SENDLOC HERE", coords, this.location);
+
         this.location.longitude = coords.longitude;
         this.location.latitude = coords.latitude;
-
-        // this.location.latitude = coords[1];
 
         return false;
     }

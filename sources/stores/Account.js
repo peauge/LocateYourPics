@@ -91,7 +91,6 @@ class AccountStore {
         AccountApi.getAccount(this.credentials.id);
         this.whatChange = null;
         this.watchId = sendLocation();
-        console.log("RESULTBEFORPIC", result);
         PictureActions.getMyPictures.defer(this.credentials.id);
     }
 
@@ -168,9 +167,7 @@ class AccountStore {
      return false;
     }
 
-// TODO : errorAlert => popup validation
      onUpdatePasswordSuccess(result) {
-       //console.log('PASSWORD UPDATE : ', result);
        this.msg = "Your password has been successfully updated!";
        this.origin = "Password Updated";
        this.errorAlert.checkError(this);
@@ -179,8 +176,6 @@ class AccountStore {
      }
 
      onUpdatePasswordError(result) {
-       //console.log('PASSWORD UPDATE ERROR : ', result)
-       // this.code = result.code;
        this.msg = result;
        this.origin = "Password Update Error";
        this.alert = true;
@@ -208,7 +203,6 @@ class AccountStore {
       }
 
       onUpdateMailSuccess(result) {
-        //console.log('MAIL UPDATE SUCCESS : ', result);
         this.msg = "A mail with a link to confirm your new address mail has been sent!";
         this.origin = "Mail Updated";
         this.errorAlert.checkError(this);
@@ -217,8 +211,6 @@ class AccountStore {
       }
 
       onUpdateMailError(result) {
-        //console.log('Mail UPDATE : ', result)
-        // this.code = result.code;
         this.msg = result;
         this.origin = "Mail Update Error"
         this.alert = true;
@@ -236,14 +228,12 @@ class AccountStore {
 
     onRequestDeleteSuccess(result) {
         BackgroundTimer.clearInterval(this.notifsId);
-        // alt.flush() clean all the stores
         console.log(alt.flush());
         console.log('**Clear AccountStore**');
 
     }
 
     onRequestDeleteError(result) {
-        // this.code = result.code;
         if (result)
           this.msg = result;
         else {

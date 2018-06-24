@@ -23,7 +23,6 @@ export class SignInForm extends React.Component{
   constructor(props, context) {
     super(props, context);
 
-    //console.log("*", User.getState().account);
     this.errorAlert = new ErrorAlert();
 
     this.state = {
@@ -55,11 +54,7 @@ export class SignInForm extends React.Component{
   }
 
   onChange(user) {
-    //console.log("onChange", user);
     if (user.code === 0 && user.account != null) {
-      //AccountActions.getAccount.defer();
-      //this.props.parent.setState({connected : true});
-      //console.log("!! Connected !!");
       const connectionAction = NavigationActions.reset({
         index: 0,
         actions: [
@@ -78,7 +73,6 @@ export class SignInForm extends React.Component{
   }
 
   handleSubmit() {
-  // setTimeout(() => { AccountActions.requestSignin(this.state.User); }, 600);
   AccountActions.requestSignin(this.state.User);
   }
 
@@ -86,25 +80,19 @@ export class SignInForm extends React.Component{
    	this.setState({User : field, alert : false});
   }
 
-// TODO : i8n ButtonText + signup
   render(){
 
     var alert = null;
     if (this.state.res.code != '') {
       if (this.state.res.code === 0) {
-        //alert = <Text className="panel-alert alert-success" role="alert"> {this.state.res.msg} </Text>;
       }
       else {
         if (this.state.alert === true) {
-          //console.log("ERRORALERTTTTTTTTT", this.state.res);
           this.errorAlert.checkError(this.state.res);
         }
-        //alert = <Text className="panel-alert alert-danger" role="alert"> {this.state.res.msg} </Text>;
       }
     }
 
-    //console.log("LogInFormRender");
-    //global.logger.debug("LogInFormRender");
     return(
       <KeyboardAvoidingView behavior='padding'
 				style={styles.containerSignin}>

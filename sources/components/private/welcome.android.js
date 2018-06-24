@@ -128,9 +128,6 @@ export class Welcome extends React.Component{
   componentDidMount() {
     LocationStore.listen(this.onChange);
     PicturesStore.listen(this.onChange);
-    console.log("Welcomedidmount", this.state.Pictures)
-
-    // this.setInterval(() =>  {LocationActions.getNearPics(0.0922); LocationActions.getNearAds(0.0122);}, 90000);
   }
 
   componentWillUnmount() {
@@ -139,8 +136,6 @@ export class Welcome extends React.Component{
   }
 
   onChange(Location) {
-    console.log("ONCHANGELOC", this.state.Pictures)
-
     this.setState({markers : Location.nearPics, Pictures : PicturesStore.getState().Pictures});
   }
 
@@ -153,8 +148,6 @@ export class Welcome extends React.Component{
    }
 
   render(){
-	  //console.log("##### Welcome rendered : ", this.state.Pictures);
-    //console.log("Markers ! ", this.state.markers);
     return (
       <View  style={styles.container}>
         <MapView
@@ -179,26 +172,5 @@ export class Welcome extends React.Component{
 	  );
 	}
 }
-
-// <MapView.Marker coordinate={{ longitude : marker.location.longitude, latitude : marker.location.latitude}} key={"Marker" + marker.id} pinColor='red'>
-
-
-// TODO : display recent pictures taken by your friends
-// <Carousel
-//   style             = {styles.carousel}
-//   ref               = {(c) => { this._carousel = c; }}
-//   data              = {this.state.markers}
-//   renderItem        = {this._renderCarouselItem}
-//   hasParallaxImages = {true}
-//   sliderWidth       = {CAROUSEL_WIDTH}
-//   sliderHeight       = {15}
-//   itemWidth         = {ITEM_WIDTH}
-//   itemHeight         = {15}
-//   inactiveSlideScale          = {0.8}
-//   inactiveSlideOpacity        = {0.7}
-//   enableMomentum              = {false}
-//   containerCustomStyle={styles.slider}
-//   contentContainerCustomStyle={styles.sliderContentContainer}
-// />
 
 reactMixin(Welcome.prototype, timerMixin);

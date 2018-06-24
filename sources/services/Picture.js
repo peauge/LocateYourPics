@@ -5,7 +5,6 @@ import SearchActions  from 'actions/Search.js';
 export default class PictureApi {
 
   static getMyPictures(id = "1") {
-    console.log("GETMYPIC", id);
     PromiseApi.get("/api/users/" + id + "/photos")
     .then((result) => {
 
@@ -60,9 +59,6 @@ export default class PictureApi {
   static createPicture(image, longitude, latitude, userId) {
     const files = image.data;
     delete image.data;
-
-    console.log("AFFICHE ICI TT LA MERDE", longitude, latitude, userId);
-
 
     PromiseApi.post('/api/photos', {userId : userId, base64 : files, longitude : longitude, latitude : latitude})
     .then((result) => {

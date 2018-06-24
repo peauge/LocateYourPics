@@ -43,7 +43,6 @@ export default class AccountApi {
     }
 
     static updatePassword(form) {
-      console.log("PROFILEINFO UPDATE", form);
         PromiseApi.put('/api/user/:userId/update', form)
           .then((res) => {
             if (res.error) {
