@@ -84,7 +84,7 @@ export default class PictureApi {
     const files = form.photos;
     delete form.photos;
 
-    PromiseApi.uploads(`/proposals/${form._id}`, form, files, 'PUT')
+    PromiseApi.uploads('/api/photos', {userId : user, base64 : files, longitude : location.longitude, latitude : location.latitude}, 'PUT')
     .then((result) => {
       console.log("updatePicture service process");
 
@@ -102,7 +102,7 @@ export default class PictureApi {
   }
 
   static deletePicture(id) {
-    PromiseApi.delete('/proposals/' + id)
+    PromiseApi.delete('/api/photos' + id)
     .then((result) => {
         if (result.error) {
           PictureActions.deletePictureError(result);
