@@ -75,7 +75,6 @@ class AccountStore {
         this.code = 1;
         this.msg = result.message;
         this.credentials = {
-          token: result.token,
           id: result.id,
         };
         navigator.geolocation.getCurrentPosition(
@@ -92,7 +91,8 @@ class AccountStore {
         AccountApi.getAccount(this.credentials.id);
         this.whatChange = null;
         this.watchId = sendLocation();
-        PictureActions.getMyPictures.defer();
+        console.log("RESULTBEFORPIC", result);
+        PictureActions.getMyPictures.defer(this.credentials.id);
     }
 
     onRequestSigninError(result) {

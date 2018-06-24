@@ -5,6 +5,7 @@ import SearchActions  from 'actions/Search.js';
 export default class PictureApi {
 
   static getMyPictures(id = "1") {
+    console.log("GETMYPIC", id);
     PromiseApi.get("/api/users/" + id + "/photos")
     .then((result) => {
 
@@ -20,18 +21,7 @@ export default class PictureApi {
   }
 
   static getFriendsPictures(id) {
-    PromiseApi.get('/public/users/' + id + '/proposals')
-    .then((result) => {
 
-        if (result.error) {
-          PictureActions.getGuidePicturesError(result);
-          return;
-        }
-        PictureActions.getGuidePicturesSuccess(result);
-    })
-    .catch((err) => {
-        PictureActions.getGuidePicturesError(err);
-    });
   }
 
   static findMainPicture(PictureId) {
@@ -138,21 +128,4 @@ export default class PictureApi {
           PictureActions.togglePictureError(err);
         });
     }
-
-
-  static requestVisit(params) {
-    PromiseApi.auth().post('/proposals/' + params[0] + '/visit', params[1])
-    .then((result) => {
-
-      if (result.error) {
-        SearchActions.requestVisitError(result);
-        return;
-      }
-
-      SearchActions.requestVisitSuccess(result);
-    })
-    .catch((err) => {
-      SearchActions.requestVisitError(err);
-    });
-  }
 }

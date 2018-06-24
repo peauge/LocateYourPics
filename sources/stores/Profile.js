@@ -29,7 +29,7 @@ class ProfileStore {
 
     onGetMyProfile(id) {
         ProfileApi.getMyProfile(id);
-        ProfileApi.getAvatar(id);
+        // ProfileApi.getAvatar(id);
         return false;
     }
 

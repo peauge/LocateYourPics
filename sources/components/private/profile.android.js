@@ -48,14 +48,11 @@ export class Profile extends React.Component{
 
     state = ProfileStore.getState();
     state.alert = profile.alert;
-    state.guide = profile.guide;
     state.code = profile.code;
     state.msg = profile.msg;
     state.origin = profile.origin;
     this.setState(state);
-    if (state.guide == true)
-      this.props.parent.setState({guide : true});
-  }
+}
 
   handleEdit() {
     this.setState({edit : true});
@@ -91,7 +88,7 @@ export class Profile extends React.Component{
       <Container>
       	<Content>
         <View style={{ backgroundColor: '#495c70'}}>
-           <Thumbnail large  style={{width: 160, height: 160, marginTop : 30, alignSelf : "center"}} source={profile && profile.photo  && profile.photo != 'eyJjb2RlIjoxLCJtZXNzYWdlIjpudWxsfQ==' ? {uri: "data:image/png;base64," + profile.photo} : require("images/avatar.png")}/>
+           <Thumbnail large  style={{width: 160, height: 160, marginTop : 30, alignSelf : "center"}} source={profile && profile.avatar  && profile.avatar != 'eyJjb2RlIjoxLCJtZXNzYWdlIjpudWxsfQ==' ? {uri: profile.avatar} : require("images/avatar.png")}/>
            <Text style={{fontSize : 22, marginLeft : 5, marginTop : 10, marginBottom : 5, alignSelf : "center", color : "white"}}>{profile && profile.first_name ? profile.first_name : "FirstName"} {profile && profile.last_name ? profile.last_name : "LastName"}</Text>
            <Text style={{fontSize : 16, marginLeft : 5, marginBottom : 5, alignSelf : "center", color : "white"}}>{profile && profile.city ? profile.city : ""}{profile && profile.country ? (profile.city ? ", " + profile.country : profile.country)  : ""}</Text>
 

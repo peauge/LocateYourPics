@@ -19,8 +19,9 @@ class PicturesStore {
         this.bindActions(PictureActions);
     }
 
-    onGetMyPictures() {
-        PictureApi.getMyPictures();
+    onGetMyPictures(id) {
+      console.log("onGetMyPictures AZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", id);
+        PictureApi.getMyPictures(id);
         return false;
     }
 
@@ -30,43 +31,14 @@ class PicturesStore {
         origin: "",
         code: ""
       };
-      this.Pictures = res.Pictures;
-      console.log("onGetGuidePicturesSuccess", res);
-      this.Pictures.map((Picture) => {
-        PictureApi.findPictures(Picture._id);
-      })
+      this.Pictures.push(res);
+      console.log("onGetGuidePicturesSuccess", res, this.Pictures);
     }
 
     onGetMyPicturesError(error) {
         this.error.msg = error;
         this.error.origin = "Picture error";
         this.errorAlert.checkError(this.error);
-    }
-
-    onGetGuidePictures(id) {
-        PictureApi.getGuidePictures(id);
-        return false;
-    }
-
-    onGetGuidePicturesSuccess(res) {
-      this.error = {
-        msg: "",
-        origin: "",
-        code: ""
-      };
-
-      this.guidePictures = res.Pictures;
-      console.log("onGetGuidePicturesSuccess");
-      this.guidePictures.map((Picture) => {
-        PictureApi.findPictures(Picture._id);
-      })
-    }
-
-    onGetGuidePicturesError(error) {
-        this.error.msg = error;
-        this.error.origin = "Picture error";
-        this.errorAlert.checkError(this.error);
-        this.guidePictures = [];
     }
 
     onCreatePicture(form) {

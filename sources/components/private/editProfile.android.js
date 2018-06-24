@@ -69,7 +69,7 @@ export class EditProfile extends React.Component{
         includeBase64 : true
       }).then(image => {
         var newProfile = Object.assign({}, this.state.profile);
-        newProfile.photoUrl = image.path;
+        newProfile.avatar = image.path;
         newProfile.photo = image;
         this.setState({profile : newProfile});
       });
@@ -101,7 +101,7 @@ export class EditProfile extends React.Component{
            <Icon name='arrow-back' style={{marginTop : 30}} />
          </Button>
          <Body>
-         <Thumbnail  style={{width: 50, height: 50, marginTop : 30, alignSelf : "center", justifyContent : "center"}} source={profile && profile.photo  && profile.photo != 'eyJjb2RlIjoxLCJtZXNzYWdlIjpudWxsfQ==' ? {uri: "data:image/png;base64," + profile.photo} : require("images/avatar.png")}/>
+         <Thumbnail  style={{width: 50, height: 50, marginTop : 30, alignSelf : "center", justifyContent : "center"}} source={profile && profile.avatar  && profile.avatar != 'eyJjb2RlIjoxLCJtZXNzYWdlIjpudWxsfQ==' ? {uri: profile.avatar} : require("images/avatar.png")}/>
          </Body>
          </Left>
           <Right>

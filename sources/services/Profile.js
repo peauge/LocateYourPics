@@ -53,7 +53,7 @@ export default class ProfileApi {
     var name = photo.path.split("/");
     fileUpload.append('avatar', {uri: photo.path, name : name[name.length - 1], type : photo.mime});
 
-    PromiseApi.upload(`/users/${id}/avatar`, fileUpload)
+    PromiseApi.upload(`/api/users/${id}/avatar`, fileUpload)
     .then((result) => {
       if (result.error) {
         ProfileActions.editPhotoError(result);
