@@ -42,11 +42,9 @@ export default class AccountApi {
         });
     }
 
-/*
-** TODO server side
-**
     static updatePassword(form) {
-        PromiseApi.put('/accounts/password', form)
+      console.log("PROFILEINFO UPDATE", form);
+        PromiseApi.put('/api/user/:userId/update', form)
           .then((res) => {
             if (res.error) {
               AccountActions.updatePasswordError(res);
@@ -61,7 +59,7 @@ export default class AccountApi {
       }
 
       static updateMail(form) {
-        PromiseApi.put('/accounts/mail', form)
+        PromiseApi.put('/api/user/:userId/update', form)
           .then((res) => {
             if (res.error) {
               AccountActions.updateMailError(res);
@@ -74,7 +72,7 @@ export default class AccountApi {
           });
           return ;
       }
-*/
+
 
     static delete(form) {
       PromiseApi.delete('api/users/', form.User.id)

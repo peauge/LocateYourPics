@@ -68,11 +68,11 @@ export default class PictureApi {
   }
 
   static createPicture(form, location, user) {
-    console.log("Picture Create service !!!", form, location, user);
     const files = form.photos;
     delete form.photos;
+    console.log("Picture Create service !!!", JSON.stringify(location));
 
-    PromiseApi.uploads('/api/photos', form)
+    PromiseApi.post('/api/photos', {userId : user, base64 : files, longitude : location.longitude, latitude : location.latitude})
     .then((result) => {
       console.log("createPicture service process");
 

@@ -94,10 +94,11 @@ export class EditProfile extends React.Component{
 
 		return (
           <Container>
+          <Content>
           <ListItem style={styles.listItem}>
           <Left>
           <Button rounded light onPress={this.handleCancel} style={{marginTop : 30}}>
-           <Icon name='arrow-back' />
+           <Icon name='arrow-back' style={{marginTop : 30}} />
          </Button>
          <Body>
          <Thumbnail  style={{width: 50, height: 50, marginTop : 30, alignSelf : "center", justifyContent : "center"}} source={profile && profile.photo  && profile.photo != 'eyJjb2RlIjoxLCJtZXNzYWdlIjpudWxsfQ==' ? {uri: "data:image/png;base64," + profile.photo} : require("images/avatar.png")}/>
@@ -105,7 +106,7 @@ export class EditProfile extends React.Component{
          </Left>
           <Right>
           <Button rounded light onPress={this.handleSubmit} style={{marginTop : 30}}>
-                     <Icon name='md-checkmark' />
+                     <Icon name='md-checkmark'  style={{marginTop : 30}} />
                    </Button>
           </Right>
           </ListItem>
@@ -115,15 +116,12 @@ export class EditProfile extends React.Component{
               <Picker.Item label={I18n.t('Profile')['pickerDesktop']} value="library" />
               <Picker.Item label={I18n.t('Profile')['pickerCancel']} value="cancel" />
             </Picker>
-            <Content>
-            <Form>
-        <SignForm
-           formType={3}
-           form={this.state.profile}
-           value={this.state.profile}
-           onChange={this.handleChange}
-           />
-           </Form>
+            <SignForm
+               formType={3}
+               form={this.state.profile}
+               value={this.state.profile}
+               onChange={this.handleChange}
+               />
          </Content>
         </Container>
 		);

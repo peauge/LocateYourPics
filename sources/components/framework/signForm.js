@@ -307,55 +307,23 @@ var SignForm = CreateClass({
         signForm = t.struct({
           first_name: t.String,
           last_name: t.String,
-          description: t.String,
-          city: t.String,
-          country: t.String,
         })
         options.fields['first_name'] = cloneDeep(name);
-        options.fields['first_name'].template = templateInputBase;
+        options.fields['first_name'].template = templateInputBaseRounded;
         options.fields['first_name'].error = I18n.t('FormError')['errorfirst_name'];
         options.fields['first_name'].placeholder = I18n.t('SignForm')['first_name'];
 
         Object.assign(options.fields['first_name'].config,
-          {reg: regName, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
+          {reg: regName, color : "black", placeholderColor : "black", iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
         options.fields['last_name'] = cloneDeep(name)
-        options.fields['last_name'].template = templateInputBase;
+        options.fields['last_name'].template = templateInputBaseRounded;
         options.fields['last_name'].error = I18n.t('FormError')['errorlast_name'];
         options.fields['last_name'].placeholder = I18n.t('SignForm')['last_name'];
 
         Object.assign(options.fields['last_name'].config,
-          {reg: regName, styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
+          {reg: regName, color : "black", placeholderColor : "black", iconStyle : styles.iconStyleBase, icon: 'md-contact', iconColor: 'black'})
 
         // options.fields['interests'] = interests
-
-        options.fields['description'] = text
-        options.fields['description'].template = templateInputBase;
-        options.fields['description'].placeholder = I18n.t('SignForm')['description'];
-
-        Object.assign(options.fields['description'].config,
-          {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, iconColor: 'black'})
-        options.fields['city'] = cloneDeep(name)
-        options.fields['city'].template = templateInputBase;
-        options.fields['city'].placeholder = I18n.t('SignForm')['city'];
-
-        Object.assign(options.fields['city'].config,
-          {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'md-flag', iconColor: 'black'})
-        options.fields['country'] = cloneDeep(name)
-        options.fields['country'].template = templateInputBase;
-        options.fields['country'].placeholder = I18n.t('SignForm')['country'];
-
-        Object.assign(options.fields['country'].config,
-          {styleText: styles.inputsWhite, iconStyle : styles.iconStyleBase, icon: 'globe', iconColor: 'black'})
-        options.fields['phone'] = phone
-        options.fields['phone'].template = templateInputBase;
-        options.fields['phone'].placeholder = I18n.t('SignForm')['phone'];
-
-        Object.assign(options.fields['phone'].config,
-          {iconStyle : styles.iconStyleBase, icon: 'md-call', iconColor: 'black'})
-        options.fields['gender'] = gender
-        options.fields['birthdate'] = date
-        options.fields['birthdate'].error = I18n.t('FormError')['errorBirthdate']
-
 
         break
   } // switch
@@ -463,7 +431,7 @@ function templateInputBaseRounded(locals) {
                    <Icon name='md-close-circle'
                    />
           <Input
-          style={{color : "white"}}
+          style={{color : locals.config.color ? locals.config.color : "white" }}
           placeholder={locals.placeholder}
           placeholderTextColor={locals.config.placeholderColor ? locals.config.placeholderColor : "white" }
           secureTextEntry={locals.secureTextEntry}
@@ -487,7 +455,7 @@ function templateInputBaseRounded(locals) {
             >
             </Icon>
           <Input
-          style={{color : "white"}}
+          style={{color : locals.config.color ? locals.config.color : "white"}}
           placeholder={locals.placeholder}
           placeholderTextColor={locals.config.placeholderColor ? locals.config.placeholderColor : "white" }
           secureTextEntry={locals.secureTextEntry}
