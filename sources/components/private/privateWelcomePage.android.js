@@ -90,8 +90,9 @@ export class PrivateWelcomePage extends React.Component{
 					includeBase64 : true
 				}).then(image => {
 					var location = LocationStore.getState().location;
-					var user = AccountStore.getState().account;
-					PictureActions.createPicture(image, location, user);
+					var userId = AccountStore.getState().account.id;
+					console.log("BEFORE CREATE user + location + img", userId, JSON.stringify(location), image);
+					PictureActions.createPicture(image, JSON.stringify(location), userId);
 				// TODO : set photo with coordonate on the map
 
 				});
