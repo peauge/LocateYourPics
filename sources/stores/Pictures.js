@@ -20,7 +20,6 @@ class PicturesStore {
     }
 
     onGetMyPictures(id) {
-      console.log("onGetMyPictures AZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", id);
         PictureApi.getMyPictures(id);
         return false;
     }
@@ -42,8 +41,6 @@ class PicturesStore {
     }
 
     onCreatePicture(image, longitude, latitude, userId) {
-      console.log("AFFICHE ICI TT LA MERDE 1111", longitude, latitude, userId);
-
       PictureApi.createPicture(image, longitude, latitude, userId);
       return false;
     }
@@ -128,29 +125,11 @@ class PicturesStore {
     }
 
     onPicturePictureSuccess(res) {
-      //console.log("onPicturePictureSuccess : ", res, " /*/");
       this.error = {
         msg: "",
         origin: "",
         code: ""
       }
-        //console.log("Pictures : ", this.Pictures);
-          // for (Picture of this.Pictures) {
-          //   if (Picture._id == res[0] && res[1]) {
-          //     res[1].map((photo, idx) => {
-          //       res[1][idx] = {uri: photo.uri, source: {uri: photo.uri}
-          //         , dimensions: { width: 100, height: 100 }, index : idx, name : "image" + idx + ".jpg"};
-          //       });
-          //     Picture.photos = res[1];
-          //     break ;
-          //   }
-          // }
-          // for (Picture of this.guidePictures) {
-          //   if (Picture._id == res[0]) {
-          //     Picture.photos = res[1];
-          //     break ;
-          //   }
-          // }
     }
 
     onPicturePictureError(error) {
