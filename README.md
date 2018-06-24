@@ -129,3 +129,12 @@ qui vous permettra de voir les logs de la console de l’émulateur.
 
 Enfin dans un troisième terminal, compilez l'application et lancez là sur le smartphone :<br/>
 `react-native run-android.`
+
+# apk Release Android
+```
+cd android
+./gradlew assembleRelease
+```
+
+
+
