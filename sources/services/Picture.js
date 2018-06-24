@@ -57,12 +57,14 @@ export default class PictureApi {
      });
   }
 
-  static createPicture(form, location, user) {
-    const files = form.photos;
-    delete form.photos;
-    console.log("Picture Create service !!!", JSON.stringify(location));
+  static createPicture(image, longitude, latitude, userId) {
+    const files = image.data;
+    delete image.data;
 
-    PromiseApi.post('/api/photos', {userId : user, base64 : files, longitude : location.longitude, latitude : location.latitude})
+    console.log("AFFICHE ICI TT LA MERDE", longitude, latitude, userId);
+
+
+    PromiseApi.post('/api/photos', {userId : userId, base64 : files, longitude : longitude, latitude : latitude})
     .then((result) => {
       console.log("createPicture service process");
 

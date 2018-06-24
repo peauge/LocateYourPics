@@ -41,9 +41,10 @@ class PicturesStore {
         this.errorAlert.checkError(this.error);
     }
 
-    onCreatePicture(form) {
-      this.form = form;
-      PictureApi.createPicture(form);
+    onCreatePicture(image, longitude, latitude, userId) {
+      console.log("AFFICHE ICI TT LA MERDE 1111", longitude, latitude, userId);
+
+      PictureApi.createPicture(image, longitude, latitude, userId);
       return false;
     }
 

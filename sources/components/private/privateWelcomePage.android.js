@@ -19,6 +19,7 @@ import ProfileStore			from 'stores/Profile'
 import Styles           from 'components/styles.json'
 import AccountActions   from 'actions/Account.js';
 import PictureActions   from 'actions/Pictures.js';
+import PictureApi      from 'services/Picture.js';
 import getTheme 				from 'components/native-base-theme/components';
 import platform 				from 'components/native-base-theme/variables/platform';
 import CreateClass 			from 'create-react-class';
@@ -89,10 +90,11 @@ export class PrivateWelcomePage extends React.Component{
 					cropping: true,
 					includeBase64 : true
 				}).then(image => {
-					var location = LocationStore.getState().location;
+					var longitude = LocationStore.getState().location["longitude"];
+					var latitude = LocationStore.getState().location["latitude"];
 					var userId = AccountStore.getState().account.id;
-					console.log("BEFORE CREATE user + location + img", userId, JSON.stringify(location)["latitude"], image);
-					PictureActions.createPicture(image, location, userId);
+					console.log("BEFORE CREATE user + location + img", userId, longitude, latitude, image);
+					PictureApi.createPicture(image, longitude, latitude, userId);
 				// TODO : set photo with coordonate on the map
 
 				});
