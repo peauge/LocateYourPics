@@ -54,8 +54,8 @@ export class Pictures extends Component {
   }
 
 
-  deleteImage() {
-    PictureActions.deletePicture(this.state.id);
+  deleteImage(id) {
+    PictureActions.deletePicture(id);
   }
 
   showGallery(source) {

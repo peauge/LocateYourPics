@@ -102,7 +102,7 @@ export default class PictureApi {
   }
 
   static deletePicture(id) {
-    PromiseApi.delete('/api/photos' + id)
+    PromiseApi.delete('/api/photos/' + id)
     .then((result) => {
         if (result.error) {
           PictureActions.deletePictureError(result);
