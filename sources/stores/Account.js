@@ -4,7 +4,6 @@ import AccountActions     from 'actions/Account.js';
 import ProfileActions     from 'actions/Profile.js';
 import PictureActions      from 'actions/Pictures.js';
 import LocationActions    from 'actions/Location.js';
-import CommentActions    from 'actions/Comment.js';
 import SearchActions      from 'actions/Search.js';
 import AccountApi         from 'services/Account.js';
 import LocationApi        from 'services/Location.js';
@@ -72,10 +71,6 @@ class AccountStore {
     }
 
     onRequestSigninSuccess(result) {
-            // Persistent save of the connection
-        //Keychain.setGenericPassword(this.form.email, this.form.password);
-        console.log("ICI", result);
-
         this.alert = false;
         this.code = 1;
         this.msg = result.message;
@@ -91,11 +86,8 @@ class AccountStore {
           }
         );
 
-        // TODO : implement frind request notif running in background
+        // TODO : implement friend request notif running in background
         // this.notifsId = BackgroundTimer.setInterval(notif, 10000);
-
-        LocationApi.getNearPics(0.0922);
-        LocationApi.nearAds(0.0922);
 
         AccountApi.getAccount(this.credentials.id);
         this.whatChange = null;

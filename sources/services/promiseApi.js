@@ -11,7 +11,7 @@ export default class PromiseApi {
     const newInstance = Object.create(PromiseApi);
     const credentials = AuthStore.getState().credentials;
 
-    if (credentials) { newInstance.token = credentials.token; }
+    if (credentials) newInstance.token = credentials.token;
 
     return newInstance;
   }
@@ -54,9 +54,7 @@ export default class PromiseApi {
   static get(url) {
     return new Promise((resolve, reject) => {
       const requestBuilder = request.get(`${config.apiUrl}${url}`);
-
-      if (this.token) { requestBuilder.set('Authorization', `Bearer ${this.token}`); }
-
+      if (this.token) requestBuilder.set('Authorization', `Bearer ${this.token}`);
       PromiseApi._handleResponse(requestBuilder, { resolve, reject });
     });
   }
@@ -69,8 +67,7 @@ export default class PromiseApi {
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json');
 
-      if (this.token) { requestBuilder.set('Authorization', `Bearer ${this.token}`); }
-
+      if (this.token) requestBuilder.set('Authorization', `Bearer ${this.token}`);
       PromiseApi._handleResponse(requestBuilder, { resolve, reject });
     });
   }
@@ -81,17 +78,15 @@ export default class PromiseApi {
         .post(`${config.apiUrl}${url}`, body)
         .set('Accept', 'application/json')
         .set('Content-Type', 'multipart/form-data');
-
-      if (this.token) { requestBuilder.set('Authorization', `Bearer ${this.token}`); }
-
+      if (this.token) requestBuilder.set('Authorization', `Bearer ${this.token}`);
       PromiseApi._handleResponse(requestBuilder, { resolve, reject });
     });
   }
 
   static uploads(url, body, files, method = 'POST') {
     return new Promise((resolve, reject) => {
-      console.log(':::files : ', files);
-      console.log('body', body);
+      console.log('files: ', files);
+      console.log('body: ', body);
       // const filesUpload = [];//new FormData();
       // files.map((file) => {
       //   console.log("file : ", file);
@@ -185,8 +180,7 @@ export default class PromiseApi {
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json');
 
-      if (this.token) { requestBuilder.set('Authorization', `Bearer ${this.token}`); }
-
+      if (this.token) requestBuilder.set('Authorization', `Bearer ${this.token}`);
       PromiseApi._handleResponse(requestBuilder, { resolve, reject });
     });
   }
@@ -195,8 +189,7 @@ export default class PromiseApi {
     return new Promise((resolve, reject) => {
       const requestBuilder = request.delete(`${config.apiUrl}${url}`);
 
-      if (this.token) { requestBuilder.set('Authorization', `Bearer ${this.token}`); }
-
+      if (this.token) requestBuilder.set('Authorization', `Bearer ${this.token}`);
       PromiseApi._handleResponse(requestBuilder, { resolve, reject });
     });
   }

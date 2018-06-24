@@ -127,7 +127,7 @@ export class Welcome extends React.Component{
 
   componentDidMount() {
     LocationStore.listen(this.onChange);
-    this.setInterval(() =>  {LocationActions.getNearPics(0.0922); LocationActions.getNearAds(0.0122);}, 90000);
+    // this.setInterval(() =>  {LocationActions.getNearPics(0.0922); LocationActions.getNearAds(0.0122);}, 90000);
   }
 
   componentWillUnmount() {

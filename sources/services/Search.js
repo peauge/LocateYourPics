@@ -5,23 +5,38 @@ export default class ProfileApi {
 
   static search(param) {
     console.log("Search service");
-    PromiseApi.get('/public/search/filter/' + param)
-    .then((result) => {
-      //console.log("Search service process ", result);
-      var regex = new RegExp('\\^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$');
+    var regex = '\\^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$';
 
-        if (result.error) {
-          //console.log("Search service error");
+    if (param.match(regex)) {
+      PromiseApi.get('/api/users/email/' + param)
+      .then((result) => {
 
+          if (result.error) {
             SearchActions.requestSearchError(result);
             return;
-        }
+          }
 
-        SearchActions.requestSearchSuccess(result);
-    })
-    .catch((err) => {
-      console.log("Search service catch ", err);
-        SearchActions.requestSearchError(err);
-    });
+          SearchActions.requestSearchSuccess(result);
+      })
+      .catch((err) => {
+        console.log("Search service catch ", err);
+          SearchActions.requestSearchError(err);
+      });
+    } else {
+      PromiseApi.post('/api/users/name/', param)
+      .then((result) => {
+
+          if (result.error) {
+            SearchActions.requestSearchError(result);
+            return;
+          }
+
+          SearchActions.requestSearchSuccess(result);
+      })
+      .catch((err) => {
+        console.log("Search service catch ", err);
+          SearchActions.requestSearchError(err);
+      });
+    }
   }
 }

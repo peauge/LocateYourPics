@@ -35,35 +35,35 @@ const retrieveAvatar = (id, forceCache) => {
 
 export default class AvatarApi {
 
-static getAvatars(ids, haveAvatars) {
-  return new Promise((resolve, reject) => {
-    new Promise((resolveHas, rejectHas) => {
-      if (ids.length !== haveAvatars.length) {
+  static getAvatars(ids, haveAvatars) {
+    return new Promise((resolve, reject) => {
+      new Promise((resolveHas, rejectHas) => {
+        if (ids.length !== haveAvatars.length) {
+          Promise
+          .all(ids.map(id => this.hasAvatar(id)))
+          .then(res => resolveHas(res.map(el => el.hasAvatar)))
+          .catch(err => rejectHas(err));
+        } else {
+          resolveHas(haveAvatars);
+        }
+      })
+      .then((userHaveAvatars) => {
         Promise
-        .all(ids.map(id => this.hasAvatar(id)))
-        .then(res => resolveHas(res.map(el => el.hasAvatar)))
-        .catch(err => rejectHas(err));
-      } else {
-        resolveHas(haveAvatars);
-      }
-    })
-    .then((userHaveAvatars) => {
-      Promise
-        .all(ids.map((id, index) => {
-          const hasAvatar = userHaveAvatars[index];
+          .all(ids.map((id, index) => {
+            const hasAvatar = userHaveAvatars[index];
 
-          if (hasAvatar) {
-            return retrieveAvatar(id);
-          }
+            if (hasAvatar) {
+              return retrieveAvatar(id);
+            }
 
-          return Promise.resolve('images/avatar.png');
-        }))
-        .then(avatars => resolve(avatars))
-        .catch(err => reject(err));
-    })
-    .catch(err => reject(err));
-  });
-}
+            return Promise.resolve('images/avatar.png');
+          }))
+          .then(avatars => resolve(avatars))
+          .catch(err => reject(err));
+      })
+      .catch(err => reject(err));
+    });
+  }
 
   static hasAvatar(userId) {
     return PromiseApi.get(`/public/profiles/${userId}/avatar/available`);

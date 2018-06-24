@@ -46,7 +46,7 @@ export default class AccountApi {
 ** TODO server side
 **
     static updatePassword(form) {
-        PromiseApi.auth().put('/accounts/password', form)
+        PromiseApi.put('/accounts/password', form)
           .then((res) => {
             if (res.error) {
               AccountActions.updatePasswordError(res);
@@ -61,7 +61,7 @@ export default class AccountApi {
       }
 
       static updateMail(form) {
-        PromiseApi.auth().put('/accounts/mail', form)
+        PromiseApi.put('/accounts/mail', form)
           .then((res) => {
             if (res.error) {
               AccountActions.updateMailError(res);
@@ -78,7 +78,6 @@ export default class AccountApi {
 
     static delete(form) {
       PromiseApi.delete('api/users/', form.User.id)
-      // PromiseApi.auth().put('/users/remove', form.User)
         .then((result) => {
             if (result.error) {
                 AccountActions.requestDeleteError(result);

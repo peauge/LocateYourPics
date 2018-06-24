@@ -31,7 +31,7 @@ class PicturesStore {
         code: ""
       };
       this.Pictures = res.Pictures;
-      console.log("onGetGuidePicturesSuccess");
+      console.log("onGetGuidePicturesSuccess", res);
       this.Pictures.map((Picture) => {
         PictureApi.findPictures(Picture._id);
       })
